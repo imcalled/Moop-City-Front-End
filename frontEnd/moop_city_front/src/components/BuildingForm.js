@@ -5,7 +5,7 @@ const BuildingForm = ( {onFormSubmission}) => {
     const [buildingType, setBuildingType] = useState("");
     const [buildingName, setBuildingName] = useState("");
     const [capacity, setCapacity] = useState("");
-    const [allotmentID, setAllotmentID] = useState(0);
+    const [allotmentCoordinates, setAllotmentCoordinates] = useState("0");
 
     const handleBuildingTypeChange = (event) => {
         setBuildingType(event.target.value);
@@ -19,7 +19,7 @@ const BuildingForm = ( {onFormSubmission}) => {
         setCapacity(event.target.value);
     }
 
-    const handleAllotmentIDChange = (event) =>{
+    const handleAllotmentCoordinatesChange = (event) =>{
         setAllotmentID(event.target.value);
     }
 
@@ -30,7 +30,7 @@ const BuildingForm = ( {onFormSubmission}) => {
             buildingType: buildingType,
             buildingName: buildingName,
             capacity: capacity,
-            allotmentID: allotmentID
+            allotmentCoordinates: allotmentCoordinates
         }
 
         onFormSubmission(newBuilding);
@@ -38,7 +38,7 @@ const BuildingForm = ( {onFormSubmission}) => {
         setBuildingType("");
         setBuildingName("");
         setCapacity("");
-        setAllotmentID(0);
+        setAllotmentCoordinates("0");
     }
 
     return (
@@ -47,7 +47,7 @@ const BuildingForm = ( {onFormSubmission}) => {
             <form onSubmit={handleFormSubmission}>
                 <div className="formElement">
                     <label htmlFor="buildingType">Choose building type: </label>
-                    <select name="buildingType" id="buildingType">
+                    <select name="buildingType" id="buildingType" onChange={handleBuildingTypeChange}>
                         <option value="house">House</option>
                         <option value="workplace">Workplace</option>
                     </select>
@@ -61,8 +61,8 @@ const BuildingForm = ( {onFormSubmission}) => {
                     <input type="text" id="capacity" value={capacity} onChange={handleCapacityChange}/>
                 </div>
                 <div className="formElement">
-                    <label htmlFor="allotmentID">Allotment Coordinates: </label>
-                    <input type="text" id="allotmentID" value={allotmentID} onChange={handleAllotmentIDChange}/>
+                    <label htmlFor="allotmentCoordinates">Allotment Coordinates: </label>
+                    <input type="text" id="allotmentCoordinates" value={allotmentCoordinates} onChange={handleAllotmentCoordinatesChange}/>
                 </div>
                 <div className="formElement">
                     <input type="submit" value="Add Task"/>
@@ -73,3 +73,5 @@ const BuildingForm = ( {onFormSubmission}) => {
         
     
 }
+
+export default BuildingForm;
