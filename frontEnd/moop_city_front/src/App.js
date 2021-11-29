@@ -6,7 +6,6 @@ import DisplayAllBuildingsContainer from './containers/DisplayAllBuildingsContai
 function App() {
   return (
     <>
-      <BuildingFormContainer />
       <DisplayAllBuildingsContainer/>
     </>
   );
