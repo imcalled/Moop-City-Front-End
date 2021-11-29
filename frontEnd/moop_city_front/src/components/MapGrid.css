@@ -7,7 +7,7 @@
     margin: auto;
     /* align-self: auto; */
     align-content: center;
-    align-self: center;
+    /* align-self: center; */
     /* object-fit: contain; */
     
 }
@@ -19,6 +19,7 @@
   width: 50%;
   margin: auto;
   right:-50px;
+  top: 25%;
 }
 
 .hidden {
@@ -29,13 +30,17 @@
   z-index: 2;
   position: absolute;
   right:0;
+  height: auto;
 }
 
 .testGrid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    width: auto;
+    height: min(90vh, 90vw);
+    /* width:90vw; */
+    width: min(90vh, 90vw);
+    /* width: auto; */
     /* height:100vh; */
     object-fit: contain;
     
