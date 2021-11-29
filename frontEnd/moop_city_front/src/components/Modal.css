@@ -1,0 +1,126 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:50%;
+    height: 50%;
+    /* background: yellow; */
+    border-radius: 15px;
+    margin: 12%;
+    color: white;
+  }
+  .modal-main{
+    width:100%;
+    background-color: transparent;
+    height: 85%;
+  }
+  .display-block {
+    display: block;
+    overflow:auto;
+    /* background: black; */
+    background: orange;
+  }
+  
+  .display-none {
+    display: none;
+  }
+  
+  .modalButton{
+    /* margin: 5px; */
+    /* position: absolute;
+    margin-right: -10px; */
+    margin-top: 2%;
+    margin-left: 75%;
+    /* margin: 15px; */
+    border-radius: 50%;
+  }
+  
+  .tabTwo{
+    background-color: aqua;
+  }
+  
+  .tabTwoButtonSelected{
+    width: 40%;
+    margin-top:0;
+    border-radius: 0px 15px 0px 0px;
+    border-color: transparent;
+    background-color: aqua;
+  }
+  
+  .tabTwoButtonNotSelected{
+    width: 40%;
+    margin-top:0;
+    border-color: transparent;
+    background-color: rgb(143, 255, 255);
+  }
+  
+  .tabOneButtonSelected{
+    width: 40%;
+    margin-top:0;
+    border-radius:0px 15px 0px 0px;
+    border-color: transparent;
+    background-color: orange;
+  }
+  
+  .tabOneButtonNotSelected{
+    width: 40%;
+    margin-top:0;
+    border-color: transparent;
+    background-color: rgb(255, 215, 142);
+  }
+  .modalTop {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0;
+    margin-top: 0;
+    background-color: transparent;
+  }
+  
+  .hideTab{
+    display: none;
+  }
+  
+  .tabOne{
+    height: 95%;
+    background-color: orange;
+    padding: 1em;
+  }
+  
+  .tabTwo{
+    height: 95%;
+    background-color: aqua;
+    padding: 1em;
+  }
+  
+  .formImage{
+    width: 25%;
+    z-index: 5;
+  }
+  
+  .formInputs{
+    display: flex;
+    flex-direction: column;
+  }
+  .addForm{
+    display: flex;
+    flex-direction: row;
+  }
+  .menuButton {
+    
+  }
+  
+  .person {
+    width: 25%;
+    height: 75%;
+    background-color: red;
+    border-radius: 10px;
+    padding: 3em;
+  
+  }
+  
+  .seeContent{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(auto-fill);
+    /* overflow-y: auto; */
+  }

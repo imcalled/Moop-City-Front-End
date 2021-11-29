@@ -1,9 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import MapGrid from './components/MapGrid'
 
 function App() {
   return (
     <>
+    <MapGrid/>
     </>
   );
 }
