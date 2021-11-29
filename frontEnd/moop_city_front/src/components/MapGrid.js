@@ -2,6 +2,7 @@ import { MapInteractionCSS } from 'react-map-interaction';
 import './MapGrid.css'
 import Modal from './Modal'
 import {useState} from 'react';
+import HouseImg from '../images/house.png'
 
 // todo first:
 // - (DONE) get rid of extra gap from tooltip div
@@ -14,6 +15,8 @@ import {useState} from 'react';
 // can probably assume the allotment ids will be in order that current db setup suggests - 1a-e 2a-e going across rows
 // building id will not match the allotment id as adding in random order not going across rows, do allotment_id
 
+// the api does not display whether the building is a workplace or home so need to get different fetches?
+
 // ---------------------------------------------
 
 const dummyAllotments = [];
@@ -25,7 +28,7 @@ for (let i=1; i<=25; i++){
       })
 }
 
-const dummyBuildings = [
+let dummyWorkplaces = [
     {
         "id": 1,
         "buildingName": "3 Mansfield Lane",
@@ -39,6 +42,37 @@ const dummyBuildings = [
         "allotment_id": 20
       }
 ];
+
+let mappedDummyWorkplaces = dummyWorkplaces.map(workplace => {
+    workplace.work = true;
+    return workplace;
+})
+console.log(dummyWorkplaces)
+dummyWorkplaces = mappedDummyWorkplaces;
+
+let dummyHouses = [
+    {
+        "id": 3,
+        "buildingName": "10 House Street",
+        "capacity": 131,
+        "allotment_id": 5
+      },
+    {
+        "id": 4,
+        "buildingName": "31 Home Street",
+        "capacity": 10,
+        "allotment_id": 23
+      }
+];
+
+let mappedDummyHouses = dummyHouses.map(house => {
+    house.work = false;
+    return house;
+})
+dummyHouses = mappedDummyHouses;
+
+const dummyBuildings = dummyHouses.concat(dummyWorkplaces);
+console.log(dummyBuildings)
 
 const MapGrid = ({buildings}) => {
 
@@ -57,7 +91,8 @@ const MapGrid = ({buildings}) => {
     const allotmentList = dummyAllotments.map(allotment => {
         return (
             <div class="tooltip">
-                    <img src="https://opengameart.org/sites/default/files/styles/medium/public/grass_0.png.preview.jpg" alt="Grass" ></img>
+                <img src={HouseImg} className={dummyBuildings.find(building => building.allotment_id==allotment.id)!=undefined? "houseImage": "hidden"}></img>
+                    <img src="https://opengameart.org/sites/default/files/styles/medium/public/grass_0.png.preview.jpg" alt="Grass" className="grassPanel"></img>
 
                 <span class="tooltiptext">{dummyBuildings.find(building => building.allotment_id==allotment.id)==undefined? "Empty Allotment" : dummyBuildings.find(building => building.allotment_id==allotment.id).buildingName}</span>
             </div>

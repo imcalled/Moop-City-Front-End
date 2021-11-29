@@ -7,8 +7,28 @@
     margin: auto;
     /* align-self: auto; */
     align-content: center;
+    align-self: center;
     /* object-fit: contain; */
     
+}
+
+.houseImage{
+  z-index: 5;
+  position: relative;
+  height: auto;
+  width: 50%;
+  margin: auto;
+  right:-50px;
+}
+
+.hidden {
+  display: none;
+}
+
+.grassPanel{
+  z-index: 2;
+  position: absolute;
+  right:0;
 }
 
 .testGrid {
@@ -22,7 +42,7 @@
 }
 
 img{
-    position: relative; 
+    /* position: relative;  */
     z-index: -1;
     width: 100%;
     height: 100%;
