@@ -5,7 +5,8 @@ const BuildingForm = ( {onFormSubmission}) => {
     const [buildingType, setBuildingType] = useState("");
     const [buildingName, setBuildingName] = useState("");
     const [capacity, setCapacity] = useState("");
-    const [allotmentCoordinates, setAllotmentCoordinates] = useState("0");
+    const [x_coordinate, setx_coordinates] = useState("");
+    const [y_coordinate, sety_coordinates] = useState("");
 
     const handleBuildingTypeChange = (event) => {
         setBuildingType(event.target.value);
@@ -19,9 +20,13 @@ const BuildingForm = ( {onFormSubmission}) => {
         setCapacity(event.target.value);
     }
 
-    const handleAllotmentCoordinatesChange = (event) =>{
-        setAllotmentID(event.target.value);
+    const handlex_coordinateChange = (event) =>{
+        setx_coordinates(event.target.value);
     }
+    const handley_coordinateChange = (event) =>{
+        sety_coordinates(event.target.value);
+    }
+
 
     const handleFormSubmission = (event) => {
         event.preventDefault();
@@ -30,7 +35,8 @@ const BuildingForm = ( {onFormSubmission}) => {
             buildingType: buildingType,
             buildingName: buildingName,
             capacity: capacity,
-            allotmentCoordinates: allotmentCoordinates
+            x_coordinate: x_coordinate,
+            y_coordinate: y_coordinate
         }
 
         onFormSubmission(newBuilding);
@@ -38,7 +44,8 @@ const BuildingForm = ( {onFormSubmission}) => {
         setBuildingType("");
         setBuildingName("");
         setCapacity("");
-        setAllotmentCoordinates("0");
+        setx_coordinates("");
+        sety_coordinates("");
     }
 
     return (
@@ -61,8 +68,12 @@ const BuildingForm = ( {onFormSubmission}) => {
                     <input type="text" id="capacity" value={capacity} onChange={handleCapacityChange}/>
                 </div>
                 <div className="formElement">
-                    <label htmlFor="allotmentCoordinates">Allotment Coordinates: </label>
-                    <input type="text" id="allotmentCoordinates" value={allotmentCoordinates} onChange={handleAllotmentCoordinatesChange}/>
+                    <label htmlFor="x_coordinate">Allotment x Coordinate: </label>
+                    <input type="text" id="x_coordinate" value={x_coordinate} onChange={handlex_coordinateChange}/>
+                </div>
+                <div className="formElement">
+                    <label htmlFor="y_coordinate">Allotment y Coordinate: </label>
+                    <input type="text" id="y_coordinate" value={y_coordinate} onChange={handley_coordinateChange}/>
                 </div>
                 <div className="formElement">
                     <input type="submit" value="Add Task"/>
