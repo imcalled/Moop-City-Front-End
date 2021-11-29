@@ -1,7 +1,7 @@
 const Building = ({building}) => {
 
     return(
-        <div className = {"building"}>
+        <div className = "building">
             {/* <h4>Type: </h4>
             <p>{building.buildingType}</p> */}
             <h4>Address: </h4>
