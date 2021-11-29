@@ -73,7 +73,6 @@ const MapGrid = ({buildings}) => {
                 </div>
         </MapInteractionCSS>
         
-        
         </div>
         <button  className="menuButton" onClick={()=>setShow(true)}>Menu</button>
         <Modal show={show} handleClose={handleClose} switchTab={switchTab} tabSelected={tabSelected}/>

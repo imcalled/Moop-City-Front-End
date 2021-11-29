@@ -1,13 +1,13 @@
 .gridContainer{
-    height: 90vw;
+    height: 90vh;
     /* width:90vw; */
-    width: -webkit-fit-content;
+    width: 90vh;
     /* width: auto; */
     border: solid 3px;
     margin: auto;
     /* align-self: auto; */
     align-content: center;
-    object-fit: contain;
+    /* object-fit: contain; */
     
 }
 
