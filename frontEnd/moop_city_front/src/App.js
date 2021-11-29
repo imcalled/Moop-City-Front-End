@@ -1,9 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
+import DisplayAllCitizensContainer from './containers/DisplayAllCitizensContainer';
 
 function App() {
   return (
     <>
+    <h2>Citizens</h2>
+    <DisplayAllCitizensContainer />
     </>
   );
 }
