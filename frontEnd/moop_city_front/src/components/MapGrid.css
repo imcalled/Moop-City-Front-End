@@ -1,7 +1,7 @@
 .gridContainer{
-    height: 90vh;
+    height: min(90vh, 90vw);
     /* width:90vw; */
-    width: 90vh;
+    width: min(90vh, 90vw);
     /* width: auto; */
     border: solid 3px;
     margin: auto;
