@@ -1,12 +1,16 @@
-// import logo from './logo.svg';
-import './App.css';
+
 import BuildingFormContainer from './containers/BuildingFormContainer';
 import DisplayAllBuildingsContainer from './containers/DisplayAllBuildingsContainer';
+
+import './App.css';
+import DisplayAllCitizensContainer from './containers/DisplayAllCitizensContainer';
 
 function App() {
   return (
     <>
-      <DisplayAllBuildingsContainer/>
+    <DisplayAllBuildingsContainer/>
+    <h2>Citizens</h2>
+    <DisplayAllCitizensContainer />
     </>
   );
 }
