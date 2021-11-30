@@ -17,11 +17,19 @@ function App() {
     if (displayBuildings==false){
       setDisplayCitizens(!displayCitizens);
     }
+    else {
+      setDisplayCitizens(!displayCitizens);
+      setDisplayBuildings(!displayBuildings);
+    }
     
   } 
 
   const showHideBuildings = () => {
     if (displayCitizens==false){
+      setDisplayBuildings(!displayBuildings);
+    }
+    else {
+      setDisplayCitizens(!displayCitizens);
       setDisplayBuildings(!displayBuildings);
     }
     
