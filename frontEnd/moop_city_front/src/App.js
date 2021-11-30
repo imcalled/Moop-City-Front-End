@@ -9,7 +9,6 @@ function App() {
   return (
     <>
     <DisplayAllBuildingsContainer/>
-    <h2>Citizens</h2>
     <DisplayAllCitizensContainer />
     </>
   );
