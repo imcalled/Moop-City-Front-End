@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import BuildingFormContainer from "./BuildingFormContainer";
-import './DisplayAllBuildingsContainer.css'
+// import './DisplayAllBuildingsContainer.css'
 import BuildingList from "/Users/roset/Documents/FrontEndProject/Moop-City-Front-End/frontEnd/moop_city_front/src/components/BuildingsList.js";
 
 const DisplayAllBuildingsContainer = () => {

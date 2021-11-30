@@ -1,10 +1,23 @@
+import './Citizen.css'
 const Citizen = ({citizen}) => {
     
     return(
-        <div>
-            <h3>Name:{citizen.fullName}</h3>
-            <h3>Home:{citizen.house_id}</h3>
-            <h3>Workplace:{citizen.workplace_id}</h3>
+        <div className="citizen">
+            <div className="building-elem">
+                <h4>Name:</h4>
+                <p>{citizen.fullName}</p>
+            </div>
+            <div className="building-elem">
+                <h4>Home:</h4>
+                <p>{citizen.house_id}</p>
+            </div>
+            <div className="building-elem">
+                <h4>Workplace:</h4>
+                <p>{citizen.workplace_id}</p>
+            </div>
+            
+           
+            
         </div>
     )
 }
