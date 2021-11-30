@@ -1,0 +1,35 @@
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.building-container{
+    background-color: orange;
+    margin-bottom: 3em;
+}
+.selected{
+    background-color: orange;
+    border: none;
+    height: 100%;
+    padding: 1em;
+    text-align: center;
+}
+.unselected{
+    background-color: white;
+    border: none;
+    height: 100%;
+    padding: 1em;
+
+    text-align: center;
+}
+
+.tab-bar{
+    width: 100%;
+    background-color: white;
+    height: 2em;
+    margin: 0;
+    padding: 0;
+}
