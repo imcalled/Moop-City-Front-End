@@ -1,5 +1,6 @@
 import {useState} from 'react';
-import './BuildingForm.scss';
+// import './BuildingForm.scss';
+import './BuildingForm.css';
 
 const BuildingForm = ( {onFormSubmission}) => {
 
@@ -56,7 +57,7 @@ const BuildingForm = ( {onFormSubmission}) => {
 
     return (
         <div className="form-container">
-            <h2>Add a new building:</h2>
+            <h2>Add a New Building:</h2>
             <form onSubmit={handleFormSubmission} className="form">
                 <div className="formElement">
                     <label htmlFor="buildingType">Choose building type: </label>
