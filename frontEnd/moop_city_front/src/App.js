@@ -8,9 +8,10 @@ import DisplayAllCitizensContainer from './containers/DisplayAllCitizensContaine
 function App() {
   return (
     <>
+    <div>
     <DisplayAllBuildingsContainer/>
-    <h2>Citizens</h2>
     <DisplayAllCitizensContainer />
+    </div>
     </>
   );
 }

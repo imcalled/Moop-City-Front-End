@@ -4,6 +4,8 @@ import CitizenForm from '../components/CitizenForm';
 import Citizen from '../components/Citizen';
 import './DisplayAllCitizensContainer.css'
 
+import Sidebar from '../components/Sidebar';
+
 const DisplayAllCitizensContainer = () => {
 
     const [citizens, setCitizens] = useState([]);
@@ -46,6 +48,7 @@ const DisplayAllCitizensContainer = () => {
 
     return(
         citizens.length > 0 ?
+      <Sidebar />
         <div className="citizen-container">
             <div className="tab-bar">
                 <button class={button1 ? "selected" : "unselected"} onClick={() => openTab("citizen-form")}>New Building</button>
@@ -59,6 +62,7 @@ const DisplayAllCitizensContainer = () => {
             </div>
             
         </div>
+      
         :
        <p>Loading...</p>
     )
