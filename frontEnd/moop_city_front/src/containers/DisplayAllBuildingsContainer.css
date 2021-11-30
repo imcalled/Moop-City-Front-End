@@ -9,6 +9,8 @@
 .building-container{
     background-color: rgb(255,215,181);
     margin-bottom: 3em;
+    padding-bottom: 1em;
+
 }
 .selected{
     background-color: rgb(255,215,181);
