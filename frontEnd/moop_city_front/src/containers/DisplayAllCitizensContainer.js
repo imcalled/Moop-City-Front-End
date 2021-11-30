@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import CitizenList from '../components/CitizensList';
 import CitizenForm from '../components/CitizenForm';
 import Citizen from '../components/Citizen';
+import Sidebar from '../components/Sidebar';
 
 const DisplayAllCitizensContainer = () => {
 
@@ -29,6 +30,7 @@ const DisplayAllCitizensContainer = () => {
     return(
         citizens.length > 0 ?
         <>
+        <Sidebar />
         <CitizenForm onCitizenSubmission={addNewCitizen}/>
         <hr/>
         <CitizenList citizens={citizens}/>
