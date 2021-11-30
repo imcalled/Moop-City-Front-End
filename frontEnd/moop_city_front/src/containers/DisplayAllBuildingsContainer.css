@@ -7,11 +7,13 @@
 }
 
 .building-container{
-    background-color: orange;
+    background-color: rgb(255,215,181);
     margin-bottom: 3em;
+    padding-bottom: 1em;
+
 }
 .selected{
-    background-color: orange;
+    background-color: rgb(255,215,181);
     border: none;
     height: 100%;
     padding: 1em;
