@@ -1,0 +1,24 @@
+.citizen{
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: space-evenly;
+    border: 3px solid black;
+    border-radius: 5px;
+    margin: 1em;
+    box-shadow: 5px 10px 10px rgba(200,100,100,0.5);
+}
+.citizen:hover{
+    background-color: rgb(247, 179, 54);
+}
+
+.building-elem{
+    display: flex;
+    flex-direction: horizontal;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0.5em;
+    height: 2em;
+}
+h4{
+    padding: 0.5em;
+}

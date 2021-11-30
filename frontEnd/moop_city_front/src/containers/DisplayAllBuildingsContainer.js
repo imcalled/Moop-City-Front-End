@@ -3,6 +3,8 @@ import React from "react";
 import BuildingFormContainer from "./BuildingFormContainer";
 import './DisplayAllBuildingsContainer.css';
 import BuildingList from "../components/BuildingsList.js";
+// import './DisplayAllBuildingsContainer.css'
+
 
 const DisplayAllBuildingsContainer = () => {
 
