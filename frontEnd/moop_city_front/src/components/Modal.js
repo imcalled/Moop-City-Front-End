@@ -38,18 +38,18 @@ const Modal = ({handleClose, show, switchTab, tabSelected}) => {
                 <p>Modal Contents 2</p>
                 <div className="seeContent">
                     {/* some mini components? scrollthrough? side scroll could mess with exit button tho unless come back to */}
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
-                    <div className="person">Peep </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
+                    <div className="person">Person </div>
                 </div>
             
             </div>
