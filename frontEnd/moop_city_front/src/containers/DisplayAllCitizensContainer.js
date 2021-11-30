@@ -6,13 +6,14 @@ import './DisplayAllCitizensContainer.css'
 
 import Sidebar from '../components/Sidebar';
 
-const DisplayAllCitizensContainer = () => {
+const DisplayAllCitizensContainer = ({display}) => {
 
     const [citizens, setCitizens] = useState([]);
     const [citizens_form, setCitizens_form] = useState(true);
     const [all_citizens, setAll_citizens] = useState(false);
     const [button1, setFormButton1] = useState(true);
     const [button2, setFormButton2] = useState(false);
+    
 
     const getCitizensData = () => {
         fetch("http://localhost:8080/citizens")
@@ -49,10 +50,10 @@ const DisplayAllCitizensContainer = () => {
     return(
         citizens.length > 0 ?
       
-        <div className="citizen-container">
+        <div className={display ? "citizen-container" : "hide"}>
             <div className="tab-bar">
-                <button class={button1 ? "selected" : "unselected"} onClick={() => openTab("citizen-form")}>New Building</button>
-                <button class={button2 ? "selected" : "unselected"} onClick={() => openTab("citizens")}>View All Buildings</button>
+                <button class={button1 ? "selected" : "unselected"} onClick={() => openTab("citizen-form")}>New Citizen</button>
+                <button class={button2 ? "selected" : "unselected"} onClick={() => openTab("citizens")}>View All Citizens</button>
             </div>
             <div id="citizen-form" className={citizens_form ? "show" : "hide"}>
                 <CitizenForm onCitizenSubmission={addNewCitizen}/>

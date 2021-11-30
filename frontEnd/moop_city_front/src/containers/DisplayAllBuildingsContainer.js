@@ -6,7 +6,7 @@ import BuildingList from "../components/BuildingsList.js";
 // import './DisplayAllBuildingsContainer.css'
 
 
-const DisplayAllBuildingsContainer = () => {
+const DisplayAllBuildingsContainer = ({display, showHideBuildings}) => {
 
     const [buildings, setBuildings] = useState([]);
     const [allotments, setAllotments] = useState([]);
@@ -132,10 +132,11 @@ const DisplayAllBuildingsContainer = () => {
     }
 
     return (
-        <div className="building-container"> 
-            <div class="w3-bar w3-black tab-bar">
+        <div className={display ? "building-container" : "hide"}> 
+            <div class="tab-bar">
                 <button class={button1 ? "selected" : "unselected"} onClick={() => openTab("building-form")}>New Building</button>
                 <button class={button2 ? "selected" : "unselected"} onClick={() => openTab("buildings")}>View All Buildings</button>
+                <button onClick={showHideBuildings} className="exit-button">X</button>
             </div> 
             <div id="building-form"  className={building_form ? "show" : "hide"}>
                 <BuildingFormContainer  addBuilding={addBuilding}/>

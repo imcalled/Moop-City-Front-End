@@ -15,7 +15,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 import "../components/Sidebar.css";
 
 
-const Sidebar = () => { 
+const Sidebar = ({showHideCitizens, showHideBuildings}) => { 
 
   return (
     <>
@@ -27,8 +27,8 @@ const Sidebar = () => {
           <SidebarContent>
             <Menu iconShape="square">
               <MenuItem icon={<HiOutlineViewGridAdd />}>Allotment</MenuItem>
-              <MenuItem icon={<FaRegBuilding />}>Building</MenuItem>
-              <MenuItem icon={<IoPersonAddOutline />}>Citizen</MenuItem>
+              <MenuItem icon={<FaRegBuilding />} onClick={showHideBuildings}>Building</MenuItem>
+              <MenuItem icon={<IoPersonAddOutline />} onClick={showHideCitizens}>Citizen</MenuItem>
             </Menu>
           </SidebarContent>
         </ProSidebar>

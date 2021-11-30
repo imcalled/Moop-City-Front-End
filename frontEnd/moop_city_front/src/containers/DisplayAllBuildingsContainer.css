@@ -10,10 +10,18 @@
     background-color: rgb(255,215,181);
     margin-bottom: 3em;
     padding-bottom: 1em;
+    width: 70%;
+    /* height: 90vh; */
+    margin-left: 20vw;
+    margin-top: 3vh;
+    border-radius: 15px 15px 15px 15px;
+    overflow-y: auto;
+    box-shadow: 10px 20px 30px rgba(200,100,100,0.5);
 
 }
 .selected{
     background-color: rgb(255,215,181);
+    border-radius: 10px 10px 0px 0px;
     border: none;
     height: 100%;
     padding: 1em;
@@ -34,4 +42,14 @@
     height: 2em;
     margin: 0;
     padding: 0;
+}
+.exit-button{
+    float: right;
+    margin-right: 1%;
+    margin-top: 0.5%;
+    border-radius: 50%;
+    background-color: orange;
+    font-weight: bold;
+    border-color: transparent;
+    color: white;
 }
