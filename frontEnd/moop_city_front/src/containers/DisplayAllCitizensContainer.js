@@ -48,7 +48,7 @@ const DisplayAllCitizensContainer = () => {
 
     return(
         citizens.length > 0 ?
-      <Sidebar />
+      
         <div className="citizen-container">
             <div className="tab-bar">
                 <button class={button1 ? "selected" : "unselected"} onClick={() => openTab("citizen-form")}>New Building</button>

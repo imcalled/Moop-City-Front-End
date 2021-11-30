@@ -4,11 +4,13 @@ import DisplayAllBuildingsContainer from './containers/DisplayAllBuildingsContai
 
 import './App.css';
 import DisplayAllCitizensContainer from './containers/DisplayAllCitizensContainer';
+import Sidebar from './components/Sidebar'
 
 function App() {
   return (
     <>
     <div>
+    <Sidebar />
     <DisplayAllBuildingsContainer/>
     <DisplayAllCitizensContainer />
     </div>
