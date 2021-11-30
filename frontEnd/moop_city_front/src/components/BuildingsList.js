@@ -1,4 +1,5 @@
 import Building from "./Building";
+import './BuildingList.css'
 
 const BuildingList = ({houses, workplaces}) => {
 

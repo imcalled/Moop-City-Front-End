@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import React from "react";
 import BuildingFormContainer from "./BuildingFormContainer";
+import './DisplayAllBuildingsContainer.css';
+import BuildingList from "../components/BuildingsList.js";
 // import './DisplayAllBuildingsContainer.css'
-import BuildingList from "/Users/roset/Documents/FrontEndProject/Moop-City-Front-End/frontEnd/moop_city_front/src/components/BuildingsList.js";
+
 
 const DisplayAllBuildingsContainer = () => {
 
@@ -9,6 +12,10 @@ const DisplayAllBuildingsContainer = () => {
     const [allotments, setAllotments] = useState([]);
     const [houses, setHouses] = useState([]);
     const [workplaces, setWorkplaces] = useState([]);
+    const [building_form, setBuilding_form] = useState(true);
+    const [all_buildings, setAll_buildings] = useState(false);
+    const [button1, setFormButton1] = useState(true);
+    const [button2, setFormButton2] = useState(false);
 
     const getAllotments = () => {
         fetch("http://localhost:8080/allotments")
@@ -95,13 +102,45 @@ const DisplayAllBuildingsContainer = () => {
         getWorkplaceData();
         getBuildings();
         }, []);
+    
+    const openTab = (tabName) => {
+        // const container1 = refContainer1.current;
+        // const container2 = refContainer2.current;
+        // if (tabName ==="building-form"){
+        //     container2.style.display = "block";
+        //     container1.style.display = "none";
+        // }
+        // if (tabName ==="buildings"){
+        //     container1.style.display = "block";
+        //     container2.style.display = "none";
+        // }    
+        
+        // document.getElementById(tabName).style.display = "block";
+        if (tabName ==="building-form"){
+            setBuilding_form(true);
+            setAll_buildings(false);
+            setFormButton1(true);
+            setFormButton2(false);
+        }
+        else if (tabName ==="buildings"){
+            setBuilding_form(false);
+            setAll_buildings(true);
+            setFormButton1(false);
+            setFormButton2(true);
+        } 
+        
+    }
 
     return (
-        <div> 
-            <div className="form-container">
+        <div className="building-container"> 
+            <div class="w3-bar w3-black tab-bar">
+                <button class={button1 ? "selected" : "unselected"} onClick={() => openTab("building-form")}>New Building</button>
+                <button class={button2 ? "selected" : "unselected"} onClick={() => openTab("buildings")}>View All Buildings</button>
+            </div> 
+            <div id="building-form"  className={building_form ? "show" : "hide"}>
                 <BuildingFormContainer  addBuilding={addBuilding}/>
             </div>
-            <div className="building-container">
+            <div id="buildings" className={all_buildings ? "show" : "hide"}>
                 <BuildingList houses={houses} workplaces={workplaces}/>
             </div>
             

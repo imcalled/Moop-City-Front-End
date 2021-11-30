@@ -1,4 +1,6 @@
 import {useState} from 'react';
+// import './BuildingForm.scss';
+import './BuildingForm.css';
 
 const BuildingForm = ( {onFormSubmission}) => {
 
@@ -54,9 +56,9 @@ const BuildingForm = ( {onFormSubmission}) => {
     }
 
     return (
-        <>
-            <h2>Add a new building:</h2>
-            <form onSubmit={handleFormSubmission}>
+        <div className="form-container">
+            <h2>Add a New Building:</h2>
+            <form onSubmit={handleFormSubmission} className="form">
                 <div className="formElement">
                     <label htmlFor="buildingType">Choose building type: </label>
                     <select name="buildingType" id="buildingType" onChange={handleBuildingTypeChange}>
@@ -85,11 +87,11 @@ const BuildingForm = ( {onFormSubmission}) => {
                     <label htmlFor="y_coordinate">Allotment y Coordinate: </label>
                     <input type="text" id="y_coordinate" value={y_coordinate} onChange={handley_coordinateChange}/>
                 </div> */}
-                <div className="formElement">
-                    <input type="submit" value="Add Task"/>
+                <div className="formElement" id="submit-building">
+                    <input type="submit" value="Add Building" className="submit"/>
                 </div>
             </form>
-        </>
+        </div>
     )
         
     
