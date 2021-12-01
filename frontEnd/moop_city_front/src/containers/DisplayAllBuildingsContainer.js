@@ -37,7 +37,11 @@ const DisplayAllBuildingsContainer = ({display, showHideBuildings}) => {
                 },
                 body: JSON.stringify(newHouse)
             })
-            .then(() => getHousesData())
+            .then((response) => {
+                if (response.status!=200){
+                    alert("Invalid house! Please try again :)")
+                }            
+            getHousesData()})
         } else if (newBuilding.buildingType === "Workplace"){
             const newWorkplace = {
                 buildingName: newBuilding.buildingName,
@@ -51,9 +55,15 @@ const DisplayAllBuildingsContainer = ({display, showHideBuildings}) => {
                 },
                 body: JSON.stringify(newWorkplace)
             })
-            .then(() => getWorkplaceData())
+            .then((response) => {
+                if (response.status!=200){
+                    alert("Invalid workplace! Please try again :)")
+                }     
+                getWorkplaceData()})
         } else {
-            console.log("this is the problem")
+            console.log("this is the problem");
+            alert("Invalid form submission! Please try again :)");
+            
         }
         
     }

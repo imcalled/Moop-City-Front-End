@@ -17,7 +17,9 @@ const DisplayAllCitizensContainer = ({display, showHideCitizens}) => {
 
     const getCitizensData = () => {
         fetch("http://localhost:8080/citizens")
-        .then(response => response.json())
+        .then(response => {
+            // console.log(response.status);
+            return response.json()})
         .then(data => setCitizens(data));
     }
 
@@ -31,7 +33,12 @@ const DisplayAllCitizensContainer = ({display, showHideCitizens}) => {
             },
             body: JSON.stringify(newCitizen)
         })
-        .then(() => getCitizensData());
+        .then((response) => {
+            console.log(response.status);
+            if (response.status!=200){
+                alert("Invalid citizen! Please try again :)")
+            }
+            getCitizensData()});
     }
     const openTab =(tabName ) => {
         if (tabName=="citizen-form"){
