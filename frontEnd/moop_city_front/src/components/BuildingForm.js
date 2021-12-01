@@ -8,8 +8,6 @@ const BuildingForm = ( {onFormSubmission}) => {
     const [buildingName, setBuildingName] = useState("");
     const [capacity, setCapacity] = useState("");
     const [allotment_id, setAllotment_id] = useState("");
-    const [x_coordinate, setx_coordinates] = useState("");
-    const [y_coordinate, sety_coordinates] = useState("");
 
     const handleBuildingTypeChange = (event) => {
         setBuildingType(event.target.value);

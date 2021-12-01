@@ -1,9 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 import BuildingForm from "../components/BuildingForm";
 
 const BuildingFormContainer = ({addBuilding}) => {
     
-    const [allotmentID, setAllotmentID] = useState("");
 
     // const getAllotmentIDByCoordinates = (newBuilding) => {
     //     fetch("http://localhost:8080/allotments")

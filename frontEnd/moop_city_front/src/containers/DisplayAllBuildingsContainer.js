@@ -6,22 +6,18 @@ import BuildingList from "../components/BuildingsList.js";
 // import './DisplayAllBuildingsContainer.css'
 
 
-const DisplayAllBuildingsContainer = ({display, showHideBuildings}) => {
+const DisplayAllBuildingsContainer = ({display, showHideBuildings, houses, workplaces, buildings, getHousesData, getWorkplaceData}) => {
 
-    const [buildings, setBuildings] = useState([]);
-    const [allotments, setAllotments] = useState([]);
-    const [houses, setHouses] = useState([]);
-    const [workplaces, setWorkplaces] = useState([]);
+    // const [buildings, setBuildings] = useState([]);
+    // const [allotments, setAllotments] = useState([]);
+    // const [houses, setHouses] = useState([]);
+    // const [workplaces, setWorkplaces] = useState([]);
     const [building_form, setBuilding_form] = useState(true);
     const [all_buildings, setAll_buildings] = useState(false);
     const [button1, setFormButton1] = useState(true);
     const [button2, setFormButton2] = useState(false);
 
-    const getAllotments = () => {
-        fetch("http://localhost:8080/allotments")
-        .then(response => response.json())
-        .then(data => setAllotments(data))
-    }
+
     const addBuilding = (newBuilding) => {
         // getAllotmentIDByCoordinates(newBuilding);
         if (newBuilding.buildingType === "House") {
@@ -58,64 +54,9 @@ const DisplayAllBuildingsContainer = ({display, showHideBuildings}) => {
         
     }
 
-    const getHousesData = () => {
-        
-        fetch("http://localhost:8080/buildings/houses")
-        .then(response => response.json())
-        .then(data => {
-            const modified_data1 = data.map(house => {
-                house.buildingType = "House";
-                return (
-                    house
-                    );
-            });
-            setHouses(modified_data1);
-
-        })
-        
-    }
-    const getWorkplaceData = () => {
-        fetch("http://localhost:8080/buildings/workplaces")
-        .then(response => response.json())
-        .then(data => {
-            const modified_data2 = data.map(workplace => {
-                workplace.buildingType = "Workplace";
-                
-                return (
-                    workplace
-                    );
-            });
-            setWorkplaces(modified_data2);
-            
-        })
-    }
-
-    const getBuildings = () => {
-        fetch("http://localhost:8080/buildings")
-        .then(response => response.json())
-        .then(data => setBuildings(data))
-    }
-
-    useEffect(() => {
-        // getAllotments();
-        getHousesData();
-        getWorkplaceData();
-        getBuildings();
-        }, []);
+    
     
     const openTab = (tabName) => {
-        // const container1 = refContainer1.current;
-        // const container2 = refContainer2.current;
-        // if (tabName ==="building-form"){
-        //     container2.style.display = "block";
-        //     container1.style.display = "none";
-        // }
-        // if (tabName ==="buildings"){
-        //     container1.style.display = "block";
-        //     container2.style.display = "none";
-        // }    
-        
-        // document.getElementById(tabName).style.display = "block";
         if (tabName ==="building-form"){
             setBuilding_form(true);
             setAll_buildings(false);
