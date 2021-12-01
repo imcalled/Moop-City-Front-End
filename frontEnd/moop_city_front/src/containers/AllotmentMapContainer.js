@@ -144,6 +144,7 @@ class AllotmentMapContainer extends Component {
   }
 
   componentDidMount = () => {
+    // fitContainer(this.)
     this.start();
   };
 
@@ -167,6 +168,15 @@ class AllotmentMapContainer extends Component {
     });
   };
 
+  // fitToContainer = (canvas) => {
+  //   // Make it visually fill the positioned parent
+  //   canvas.style.width ='100%';
+  //   canvas.style.height='100%';
+  //   // ...then set the internal size to match
+  //   canvas.width  = canvas.offsetWidth;
+  //   canvas.height = canvas.offsetHeight;
+  // }
+
   getContext = () => this.canvasRef.current.getContext("2d");
     // var rect = this.canvasRef.current.parentNode.getBoundingClientRect();
     // this.canvas = this.canvasRef.current;
@@ -180,12 +190,14 @@ class AllotmentMapContainer extends Component {
           Tilemaps examples (with React)
         </div>
         <div className="gridMapContainer">
-          <canvas id="responsive-canvas"
-            ref={this.canvasRef}
-            width={window.innerWidth}
-            height={window.innerHeight}
-            // canvas.style = "position:absolute; left: 50%; width: 400px; margin-left: -200px;";
-          />
+          {/* <p>Grid map container</p> */}
+            <canvas
+              ref={this.canvasRef}
+              width={960}
+              height={960}
+              style = {{margin: "0 auto"}}
+              // canvas.style = "position:absolute; left: 50%; width: 400px; margin-left: -200px;";
+              />
         </div>
       </div>
     );

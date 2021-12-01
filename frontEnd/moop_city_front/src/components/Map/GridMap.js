@@ -118,10 +118,14 @@ export default class GridMap {
               0, // source y
               this.tileMap.tileSize, // source width
               this.tileMap.tileSize, // source height
-              columnIndex * Math.ceil(Math.floor(this.context.canvas.height/5) /this.tileMap.tileSize) * this.tileMap.tileSize,  // target x
-              rowIndex * Math.ceil(Math.floor(this.context.canvas.height/5) /this.tileMap.tileSize) * this.tileMap.tileSize, // target y
-              Math.ceil(Math.floor(this.context.canvas.height/5) /this.tileMap.tileSize) * this.tileMap.tileSize, // target width
-              Math.ceil(Math.floor(this.context.canvas.height/5) /this.tileMap.tileSize) * this.tileMap.tileSize // target height
+              // columnIndex * this.tileMap.tileSize,
+              // rowIndex * this.tileMap.tileSize,
+              // this.tileMap.tileSize,
+              // this.tileMap.tileSize
+              columnIndex * (this.context.canvas.height/5) /this.tileMap.tileSize * this.tileMap.tileSize,  // target x
+              rowIndex * (this.context.canvas.height/5) /this.tileMap.tileSize * this.tileMap.tileSize, // target y
+              (this.context.canvas.height/5) /this.tileMap.tileSize * this.tileMap.tileSize, // target width
+              (this.context.canvas.height/5) /this.tileMap.tileSize * this.tileMap.tileSize // target height
             );
           }
         }
