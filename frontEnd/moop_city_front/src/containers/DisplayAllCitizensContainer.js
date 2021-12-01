@@ -6,7 +6,7 @@ import './DisplayAllCitizensContainer.css'
 
 import Sidebar from '../components/Sidebar';
 
-const DisplayAllCitizensContainer = ({display}) => {
+const DisplayAllCitizensContainer = ({display, showHideCitizens}) => {
 
     const [citizens, setCitizens] = useState([]);
     const [citizens_form, setCitizens_form] = useState(true);
@@ -52,8 +52,9 @@ const DisplayAllCitizensContainer = ({display}) => {
       
         <div className={display ? "citizen-container" : "hide"}>
             <div className="tab-bar">
-                <button class={button1 ? "selected" : "unselected"} onClick={() => openTab("citizen-form")}>New Citizen</button>
-                <button class={button2 ? "selected" : "unselected"} onClick={() => openTab("citizens")}>View All Citizens</button>
+                <button class={button1 ? "selected-citizen" : "unselected-citizen"} onClick={() => openTab("citizen-form")}>New Citizen</button>
+                <button class={button2 ? "selected-citizen" : "unselected-citizen"} onClick={() => openTab("citizens")}>View All Citizens</button>
+                <button onClick={showHideCitizens} className="exit-button-citizen">X</button>
             </div>
             <div id="citizen-form" className={citizens_form ? "show" : "hide"}>
                 <CitizenForm onCitizenSubmission={addNewCitizen}/>

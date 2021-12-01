@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './CitizenForm.css';
 
 const CitizenForm = ({onCitizenSubmission}) => {
 
@@ -35,26 +36,26 @@ const CitizenForm = ({onCitizenSubmission}) => {
 }
 
     return(
-        <>
+        <div className="form-container-citizen">
             <h2>Add new Citizen</h2>
-            <form onSubmit={handleFormSubmission}>
-            <div>
+            <form onSubmit={handleFormSubmission} className="form-citizen">
+            <div className="formElement-citizen">
                 <label>Full Name:</label>
-                <input type="text" value={fullName} onChange={handleFullNameChange}/>
+                <input type="text" value={fullName} onChange={handleFullNameChange} className="text-input-citizen"/>
             </div>
-            <div>
+            <div className="formElement-citizen">
                 <label>Home:</label>
-                <input type="text" value={home} onChange={handleHomeChange}/>
+                <input type="text" value={home} onChange={handleHomeChange} className="text-input-citizen"/>
             </div>
-            <div>
+            <div className="formElement-citizen">
                 <label>Workplace:</label>
-                <input type="text" value={workplace} onChange={handleWorkplaceChange}/>
+                <input type="text" value={workplace} onChange={handleWorkplaceChange} className="text-input-citizen"/>
             </div>
-            <div className="formElement">
-                    <input type="submit" value="Add Task"/>
+            <div className="formElement-citizen">
+                    <input type="submit" value="Add Citizen" className="submit-citizen"/>
             </div>
             </form>
-        </>
+        </div>
     )
 }
 

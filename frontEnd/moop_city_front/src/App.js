@@ -35,12 +35,21 @@ function App() {
     
   } 
 
+  const hideAll = () => {
+    setDisplayCitizens(false);
+    setDisplayBuildings(false);
+  }
+
   return (
     <>
-    <div>
-    <Sidebar showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings}/>
-    <DisplayAllBuildingsContainer display={displayBuildings} showHideBuildings={showHideBuildings}/>
-    <DisplayAllCitizensContainer display={displayCitizens} />
+    <div className="big-container">
+    <Sidebar showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} hideAll={hideAll}/>
+    
+      
+    <div className="right-side">
+      <DisplayAllBuildingsContainer display={displayBuildings} showHideBuildings={showHideBuildings}/>
+      <DisplayAllCitizensContainer display={displayCitizens} showHideCitizens={showHideCitizens}/>
+    </div>
     </div>
     </>
   );

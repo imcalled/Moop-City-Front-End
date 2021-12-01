@@ -69,24 +69,16 @@ const BuildingForm = ( {onFormSubmission}) => {
                 </div>
                 <div className="formElement">
                     <label htmlFor="buildingName">Building Name: </label>
-                    <input type="text" id="buildingName" value={buildingName} onChange={handleBuildingNameChange}/>
+                    <input type="text" id="buildingName" value={buildingName} onChange={handleBuildingNameChange} className="text-input-building"/>
                 </div>
                 <div className="formElement">
                     <label htmlFor="capacity">Capacity: </label>
-                    <input type="text" id="capacity" value={capacity} onChange={handleCapacityChange}/>
+                    <input type="text" id="capacity" value={capacity} onChange={handleCapacityChange} className="text-input-building"/>
                 </div>
                 <div className="formElement">
                     <label htmlFor="allotment_id">Allotment ID: </label>
-                    <input type="text" id="allotment_id" value={allotment_id} onChange={handleAllotment_id}/>
+                    <input type="text" id="allotment_id" value={allotment_id} onChange={handleAllotment_id} className="text-input-building"/>
                 </div>
-                {/* <div className="formElement">
-                    <label htmlFor="x_coordinate">Allotment x Coordinate: </label>
-                    <input type="text" id="x_coordinate" value={x_coordinate} onChange={handlex_coordinateChange}/>
-                </div>
-                <div className="formElement">
-                    <label htmlFor="y_coordinate">Allotment y Coordinate: </label>
-                    <input type="text" id="y_coordinate" value={y_coordinate} onChange={handley_coordinateChange}/>
-                </div> */}
                 <div className="formElement" id="submit-building">
                     <input type="submit" value="Add Building" className="submit"/>
                 </div>

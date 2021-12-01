@@ -6,17 +6,27 @@
 }
 
 .citizen-container{
-    background-color: rgb(255,215,181);
+    background-color: rgb(181, 222, 255);
     margin-bottom: 3em;
+    padding-bottom: 1em;
+    /* height: 90vh; */
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 3vh;
+    /* float: right; */
+    border-radius: 15px 15px 15px 15px;
+    overflow-y: auto;
+    box-shadow: 10px 20px 30px rgba(181, 222, 255, 0.5);
+    width: 90%;
 }
-.selected{
-    background-color: rgb(255,215,181);
+.selected-citizen{
+    background-color: rgb(181,222,255);
     border: none;
     height: 100%;
     padding: 1em;
     text-align: center;
 }
-.unselected{
+.unselected-citizen{
     background-color: white;
     border: none;
     height: 100%;
@@ -24,6 +34,7 @@
 
     text-align: center;
 }
+
 
 .tab-bar{
     width: 100%;
@@ -31,4 +42,18 @@
     height: 2em;
     margin: 0;
     padding: 0;
+}
+.exit-button-citizen{
+    float: right;
+    margin-right: 1%;
+    margin-top: 0.5%;
+    border-radius: 50%;
+    background-color: rgb(0, 132, 255);
+    font-weight: bold;
+    border-color: transparent;
+    color: white;
+}
+
+.exit-button-citizen:hover{
+    background-color: rgb(162, 0, 255);
 }

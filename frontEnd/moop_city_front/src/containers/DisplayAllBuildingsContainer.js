@@ -136,7 +136,7 @@ const DisplayAllBuildingsContainer = ({display, showHideBuildings}) => {
             <div class="tab-bar">
                 <button class={button1 ? "selected" : "unselected"} onClick={() => openTab("building-form")}>New Building</button>
                 <button class={button2 ? "selected" : "unselected"} onClick={() => openTab("buildings")}>View All Buildings</button>
-                <button onClick={showHideBuildings} className="exit-button">X</button>
+                <button onClick={showHideBuildings} className="exit-button-building">X</button>
             </div> 
             <div id="building-form"  className={building_form ? "show" : "hide"}>
                 <BuildingFormContainer  addBuilding={addBuilding}/>

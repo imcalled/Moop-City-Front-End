@@ -2,6 +2,7 @@
     display: block;
 }
 
+
 .hide{
     display: none;
 }
@@ -10,13 +11,15 @@
     background-color: rgb(255,215,181);
     margin-bottom: 3em;
     padding-bottom: 1em;
-    width: 70%;
     /* height: 90vh; */
-    margin-left: 20vw;
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 3vh;
+    /* float: right; */
     border-radius: 15px 15px 15px 15px;
     overflow-y: auto;
     box-shadow: 10px 20px 30px rgba(200,100,100,0.5);
+    width: 90%;
 
 }
 .selected{
@@ -43,7 +46,7 @@
     margin: 0;
     padding: 0;
 }
-.exit-button{
+.exit-button-building{
     float: right;
     margin-right: 1%;
     margin-top: 0.5%;
@@ -52,4 +55,8 @@
     font-weight: bold;
     border-color: transparent;
     color: white;
+}
+
+.exit-button-building:hover{
+    background-color: rgb(255, 81, 0);
 }
