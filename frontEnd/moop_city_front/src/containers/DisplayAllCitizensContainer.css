@@ -16,11 +16,12 @@
     /* float: right; */
     border-radius: 15px 15px 15px 15px;
     overflow-y: auto;
-    box-shadow: 10px 20px 30px rgba(181, 222, 255, 0.5);
+    box-shadow: 10px 20px 30px rgba(80, 176, 255, 0.4);
     width: 90%;
 }
 .selected-citizen{
     background-color: rgb(181,222,255);
+    border-radius: 10px 10px 0px 0px;
     border: none;
     height: 100%;
     padding: 1em;
@@ -28,6 +29,7 @@
 }
 .unselected-citizen{
     background-color: white;
+    border-radius: 10px 10px 0px 0px;
     border: none;
     height: 100%;
     padding: 1em;

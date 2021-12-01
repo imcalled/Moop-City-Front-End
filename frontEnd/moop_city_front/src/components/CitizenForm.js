@@ -37,7 +37,7 @@ const CitizenForm = ({onCitizenSubmission}) => {
 
     return(
         <div className="form-container-citizen">
-            <h2>Add new Citizen</h2>
+            <h2>Add New Citizen</h2>
             <form onSubmit={handleFormSubmission} className="form-citizen">
             <div className="formElement-citizen">
                 <label>Full Name:</label>

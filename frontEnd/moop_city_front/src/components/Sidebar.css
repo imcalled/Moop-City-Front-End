@@ -1,12 +1,14 @@
 #sidebar {
-    position: absolute;
-    width: 15%;
+    position: relative;
+    width: 14%;
     float: left;
-    margin-top: -20px;
+    /* margin-top: -20px; */
+    margin-top: 2.5vh;
+    border-right: 1px solid grey;
   }
 
   #sidebar .pro-sidebar {
-    height: 100vh;
+    height: 95vh;
   }
   
   #sidebar .pro-sidebar {
