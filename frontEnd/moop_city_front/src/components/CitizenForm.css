@@ -1,18 +1,18 @@
-.form-container{
+.form-container-citizen{
     padding: 2em;
-    border: solid 3px rgb(255, 115, 0);
+    border: solid 3px rgb(49, 134, 204);
     margin: 2em;
     border-radius: 5px;
-    box-shadow: inset 0 0 40px rgba(200,100,100,0.5);
+    box-shadow: inset 0 0 40px rgba(102, 186, 255, 0.5);
     /* box-shadow:  0 0 40px rgba(200,100,100,0.5); */
     
 }
 
-.form{
+.form-citizen{
     display: block;
 }
 
-.formElement{
+.formElement-citizen{
     display: grid;
     grid-template-columns: 0.5fr 1.5fr;
     grid-template-rows: 1.5fr 1fr;
@@ -28,26 +28,26 @@
     margin-top: 10px;
   }
 
-.buildingType{
+.citizenType{
     margin-top:3em;
 }
 
-.submit{
+.submit-citizen{
     /* grid-column-start: 1;
     grid-column-end: 3; */
     margin-top: 1em;
     padding: 0.5em;
     border-radius: 5px;
-    background-color: rgb(255, 115, 0);
+    background-color: rgb(0, 132, 255);
     border-color: transparent;
     color: color;
-    box-shadow: 5px 10px 10px rgba(200,100,100,0.5);
+    box-shadow: 5px 10px 10px rgba(102, 186, 255, 0.5);
 }
-.submit:hover{
-    background-color: rgb(255, 151, 66);
+.submit-citizen:hover{
+    background-color: rgb(66, 211, 255);
     color: black;
-    border: 2px solid rgb(255, 115, 0);
-    box-shadow: 5px 10px 8px rgba(200,100,100,0.5);
+    border: 2px solid rgb(0, 119, 255);
+    box-shadow: 5px 10px 8px rgba(102, 186, 255, 0.5);
     /* font-weight: bold; */
 }
 
@@ -56,7 +56,7 @@ label{
     /* position: relative;
     top: 5px; */
 }
-.text-input-building{
+.text-input-citizen{
     /* border-radius: 5px;
     border-color: transparent;
     background-color: rgba(255, 230, 184, 0.507);
@@ -78,28 +78,29 @@ label{
     to {  margin-top:2em;}
 }
 
-  .text-input-building:focus{
+   .text-input-citizen:focus{
     outline: 0;
-    border-bottom-color: rgb(255, 115, 0);
+    border-bottom-color: rgb(0, 132, 255);
     
-padding-top: 0; 
+    padding-top: 0; 
      };
 
     
-#submit-building {
+.submit-citizen {
     margin-top: 3em;
+    background-color: rgb(0, 132, 255);
 }
+
+/* .submit-citizen:hover {
+    margin-top: 3em;
+    background-color: rgb(0, 132, 255);
+} */
 
 
 input[type=text]:focus + label {
     margin-top: 0;}
 
-select{
-    border-radius: 5px;
-    padding: 0.5em;
-    border-color: rgb(255, 115, 0);
-    margin-top: 1em;
-} 
+
 
 
 input[type="submit"]{
@@ -109,6 +110,7 @@ input[type="submit"]{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    /* background-color: rgb(0, 132, 255); */
 }
 
 h2{

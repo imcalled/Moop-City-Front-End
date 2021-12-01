@@ -1,0 +1,7 @@
+.big-container{
+    min-height: 100vh;
+}
+.right-side{
+    float: right;
+    width: 85%;
+}
