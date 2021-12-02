@@ -26,9 +26,11 @@ const Sidebar = ({showHideCitizens, showHideBuildings, showHideMap}) => {
         </div>
           <SidebarContent>
             <Menu iconShape="square">
-              <MenuItem icon={<HiOutlineViewGridAdd />} onClick={showHideMap}>Allotment</MenuItem>
-              <MenuItem icon={<FaRegBuilding />} onClick={showHideBuildings}>Building</MenuItem>
-              <MenuItem icon={<IoPersonAddOutline />} onClick={showHideCitizens}>Citizen</MenuItem>
+              <div className="menu-items">
+              <MenuItem icon={<HiOutlineViewGridAdd />} onClick={showHideMap}><p className="menuText">Allotment</p></MenuItem>
+              <MenuItem icon={<FaRegBuilding />} onClick={showHideBuildings}><p className="menuText">Building</p></MenuItem>
+              <MenuItem icon={<IoPersonAddOutline />} onClick={showHideCitizens}><p className="menuText">Citizen</p></MenuItem>
+              </div>
             </Menu>
           </SidebarContent>
         </ProSidebar>

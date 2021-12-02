@@ -69,3 +69,11 @@ body {
     /* height: 800 px;
     width: 800 px; */
  /* } */
+
+ @media only screen and (max-width: 600px) {
+  .right-side{
+    width: 100%;
+    height: 100%;
+  }
+  
+ }

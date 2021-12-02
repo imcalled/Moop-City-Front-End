@@ -59,3 +59,50 @@
   #sidebar .logo {
     padding: 20px;
   }
+
+  @media only screen and (max-width: 1200px) {
+    .menuText {
+      display: none;
+    }
+    .pro-item-content{
+      height:15%;
+    }
+    #sidebar{
+      width: 7em;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    #sidebar{
+      bottom: 0;
+      width: 100vw;
+      position: fixed;
+      height:10vh;
+      z-index: 10;
+      background-color: rgba(0,0,0,0);
+      margin-top: 0.5em;
+      padding-top: 0;
+    }
+    #sidebar p {
+      display: none;
+    }
+    .right-side{
+      width: 100%;
+    }
+
+    .menu-items{
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      justify-content: space-evenly;
+      background-color: transparent;
+    }
+    .pro-sidebar{
+      display: flex;
+      display: horizontal;
+      background-color: transparent;
+    }
+    .pro-sidebar-inner{
+      background-color: rgba(0,0,0,0);
+    }
+  }
