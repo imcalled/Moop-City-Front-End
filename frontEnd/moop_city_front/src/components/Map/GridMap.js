@@ -89,15 +89,20 @@
 
 // export default Grid;
 
+import { Component } from "react";
 import loader from "./Loader";
 import tileMap from "./TileMap";
 
 export default class GridMap {
-    constructor(context) {
+    constructor(context, houses, workplaces) {
+      // super(props);
       this.context = context;
       this.loader = new loader();
-      this.tileMap = new tileMap();
-    }
+      this.houses = houses;
+      this.workplaces = workplaces;
+      this.tileMap = new tileMap(this.houses, this.workplaces);
+      // this.allotments = allotments;
+    }   
   
     init = async () => {
       const tiles = await this.loader.loadImage("tiles", "./assets/tiles.png");
@@ -105,11 +110,13 @@ export default class GridMap {
       this.images = {
         tiles,
       };
+      this.tileMap.placeInitialBuildings(this.houses, this.workplaces);
     };
   
     draw = () => {
       for (let columnIndex = 0; columnIndex < this.tileMap.columns; columnIndex++) {
         for (let rowIndex = 0; rowIndex < this.tileMap.rows; rowIndex++) {
+          //call placeInitialHouses
           let tile = this.tileMap.getTile(columnIndex, rowIndex);
           if (tile !== 0) { // 0 => empty tile
             this.context.drawImage(
@@ -135,5 +142,6 @@ export default class GridMap {
     render() {
       // draw map
       this.draw(0);
+      return(<> </>);
     }
   }

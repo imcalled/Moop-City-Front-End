@@ -15,7 +15,6 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
     const [workplaces, setWorkplaces] = useState([]);
     const [buildings, setBuildings] = useState([]);
 
-
     const getHousesData = () => {
         
         fetch("http://localhost:8080/buildings/houses")
@@ -27,9 +26,9 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
                     house
                     );
             });
-            setHouses(modified_data1);
-
+            setHouses(modified_data1)
         })
+        // .then(console.log(houses[0].id));
         
     }
     const getWorkplaceData = () => {
@@ -48,10 +47,17 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
         })
     }
 
+    // const getAllotments = () => {
+    //     fetch("http://localhost:8080/allotments")
+    //     .then(response => response.json())
+    //     .then(data => setAllotments(data))
+    // }
+
     const getBuildings = () => {
         fetch("http://localhost:8080/buildings")
         .then(response => response.json())
         .then(data => setBuildings(data))
+        // .then(console.log("buildings", data))
     }
 
     useEffect(() => {
@@ -67,7 +73,7 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
         <div className="display-container"> 
             
             <div className="right-side">
-                <AllotmentMapContainer />
+                <AllotmentMapContainer houses={houses} workplaces={workplaces}/>
                 <DisplayAllBuildingsContainer display={displayBuildings} showHideBuildings={showHideBuildings} houses={houses} workplaces={workplaces} buildings={buildings} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
                 <DisplayAllCitizensContainer display={displayCitizens} showHideCitizens={showHideCitizens} houses={houses} workplaces={workplaces} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
             </div>

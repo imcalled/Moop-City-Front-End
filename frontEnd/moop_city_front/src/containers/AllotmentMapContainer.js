@@ -73,19 +73,68 @@ class AllotmentMapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isGridMapRunning: false
+      isGridMapRunning: false,
+      houses: [],
+      workplaces: []
     };
     this.canvasRef = React.createRef();
+    // console.log(this.props)
+    // this.houses = this.props.houses;
+    // this.workplaces = this.props.workplaces;
+    // this.allotments = allotments;
+
   }
 
+  // const [houses, setHouses] = useState([]);
+  getHousesData = async () => {
+    const res = await fetch("http://localhost:8080/buildings/houses");
+    const data = await res.json();
+    const modified_data = await data.map(house => {
+      house.buildingType = "House";
+      return house;
+    })
+    return this.setState(state => ({ houses: modified_data}))
+  }
+
+  getWorkplacesData = async () => {
+    const res = await fetch("http://localhost:8080/buildings/workplaces");
+    const data = await res.json();
+    const modified_data1 = await data.map(workplaces => {
+      workplaces.buildingType = "Workplace";
+      return workplaces;
+    })
+    return this.setState(state => ({ workplaces: modified_data1}))
+  }
+    // .then(response => response.json())
+    // .then(data => {
+    //     const modified_data1 = data.map(house => {
+    //         house.buildingType = "House";
+    //         return (
+    //             house
+    //             );
+    //     });
+        // setHouses(modified_data1)
+        // this.setState(state => ({ houses: modified_data1}));
+  
   componentDidMount = () => {
     // fitContainer(this.)
-    this.start();
-  };
+    this.getHousesData();
+    this.getWorkplacesData();
+    setTimeout(() => this.start(), 300);
+  }
+
+  componentDidUpdate = (prevState) => {
+    if(this.state.workplaces != prevState.workplaces) {
+      this.getWorkplacesData();
+    // useEffect(() => {console.log("useEffect", citizens); addNamesToCitizensData();}, [fetchedData]);
+  }
+}
 
   start = async () => {
     if (!this.state.isGridMapRunning) {
-      this.gridMap = new GridMap(this.getContext());
+      // this.gridMap = new GridMap(this.getContext(), this.props.houses, this.props.workplaces);
+      this.gridMap = new GridMap(this.getContext(), this.state.houses, this.state.workplaces);
+      // this.state.{houses}
       await this.gridMap.init();
       this.renderGridMap();
     }
@@ -103,27 +152,14 @@ class AllotmentMapContainer extends Component {
     });
   };
 
-  // fitToContainer = (canvas) => {
-  //   // Make it visually fill the positioned parent
-  //   canvas.style.width ='100%';
-  //   canvas.style.height='100%';
-  //   // ...then set the internal size to match
-  //   canvas.width  = canvas.offsetWidth;
-  //   canvas.height = canvas.offsetHeight;
-  // }
-
   getContext = () => this.canvasRef.current.getContext("2d");
-    // var rect = this.canvasRef.current.parentNode.getBoundingClientRect();
-    // this.canvas = this.canvasRef.current;
-    // this.canvas.width = rect.width;
-    // this.canvas.height = rect.height;
   
   render() {
     return (
       <div>
-        <div className="header">
+        {/* <div className="header">
           Tilemaps examples (with React)
-        </div>
+        </div> */}
         <div className="gridMapContainer">
           {/* <p>Grid map container</p> */}
             <canvas
@@ -140,3 +176,110 @@ class AllotmentMapContainer extends Component {
 }
 
 export default AllotmentMapContainer;
+
+// import React, { Component, useState, useEffect, useRef, createRef } from "react";
+// import GridMap from '../components/Map/GridMap';
+// import '../App.css';
+
+// const AllotmentMapContainer = () => {
+  
+//   const [isGridMapRunning, setIsGridMapRunning] = useState(false);
+//   const [houses, setHouses] = useState([]);
+//   const [workplaces, setWorkplaces] = useState([]);
+//   // const [canvasRef, setCanvasRef] = useState(createRef());
+//   const [context, setContext] = useState("");
+//   const canvasRef = useRef(null);
+  
+//   // getCanvas = () => { return canvasRef.current }
+//     // this.canvasRef = React.createRef();
+
+//   const getHousesData = () => {
+//     fetch("http://localhost:8080/buildings/houses")
+//       .then(response => response.json())
+//       .then(data => {
+//         const modified_data = data.map(house => {
+//           house.buildingType = "House";
+//           return house;
+//         })
+//       setHouses(modified_data);
+//   })
+// }
+
+//   const getWorkplacesData = () => {
+//     fetch("http://localhost:8080/buildings/workplaces")
+//       .then(response => response.json())
+//       .then(data => {
+//         const modified_data1 = data.map(workplaces => {
+//           workplaces.buildingType = "Workplace";
+//           return workplaces;
+//       })
+//       setWorkplaces(modified_data1);
+//     })
+//   }
+//     // .then(response => response.json())
+//     // .then(data => {
+//     //     const modified_data1 = data.map(house => {
+//     //         house.buildingType = "House";
+//     //         return (
+//     //             house
+//     //             );
+//     //     });
+//         // setHouses(modified_data1)
+//         // this.setState(state => ({ houses: modified_data1}));
+
+
+//   // componentDidUpdate = (prevProps, prevState) => {
+//   //   if(this.props.workplaces != prevProps.workplaces) {
+//   //     this.getWorkplacesData();
+//   //   // useEffect(() => {console.log("useEffect", citizens); addNamesToCitizensData();}, [fetchedData]);
+//   // }
+
+//   const start = async () => {
+//     if (!isGridMapRunning) {
+//       // this.gridMap = new GridMap(this.getContext(), this.props.houses, this.props.workplaces);
+//       const gridMap = new GridMap(getContext(), {houses, workplaces});
+//       // this.state.{houses}
+//       await gridMap.init();
+//       renderGridMap(gridMap);
+//     }
+//     setIsGridMapRunning(!isGridMapRunning);
+//   };
+
+//   const renderGridMap = (gridMap) => {
+//     requestAnimationFrame(() => {
+//         // this.canvasRef.current.getContext("2d").canvas.height = this.canvasRef.current.getContext("2d").canvas.width;
+//         gridMap.render();
+//       if (isGridMapRunning) {
+//           // this.canvasRef.current.getContext("2d").canvas.height = this.canvasRef.current.getContext("2d").canvas.width;
+//           renderGridMap();
+//       }
+//     });
+//   };
+
+//   const getContext = () => canvasRef.current.getContext("2d");
+
+//   useEffect(() => {
+//     getHousesData();
+//     getWorkplacesData();
+//     setTimeout(() => start(), 300);
+//   }, [])
+
+//   return (
+//     <div>
+//       {/* <div className="header">
+//         Tilemaps examples (with React)
+//       </div> */}
+//       <div className="gridMapContainer">
+//         {/* <p>Grid map container</p> */}
+//           <canvas
+//             ref={canvasRef}
+//             width={960}
+//             height={960}
+//             style = {{margin: "0 auto"}}
+//             // canvas.style = "position:absolute; left: 50%; width: 400px; margin-left: -200px;";
+//             />
+//       </div>
+//     </div>
+//   );
+// }
+// export default AllotmentMapContainer;
