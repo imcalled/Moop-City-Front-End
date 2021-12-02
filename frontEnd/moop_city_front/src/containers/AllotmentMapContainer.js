@@ -75,7 +75,13 @@ class AllotmentMapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isGridMapRunning: false
+      isGridMapRunning: false,
+      value: {
+        scale: 1,
+        translation: { x: 0, y: 0 },
+        translationBounds: ({xMin:0, yMin:0, xMax:0, yMax:0}),
+        disablePan: true
+      }
     };
     this.canvasRef = React.createRef();
   }
@@ -128,7 +134,10 @@ class AllotmentMapContainer extends Component {
           Tilemaps examples (with React)
         </div> */}
         <div className="gridMapContainer">
-        <MapInteractionCSS >
+        <MapInteractionCSS value={this.state.value} 
+        translation={this.state.value.translation}
+        translationBounds={this.state.value.translationBounds}
+        onChange={(value) => this.setState({ value })}>
         {/* <div id="zoom1">
           <div id="zoom2" >
             <div id="zoom3" > */}

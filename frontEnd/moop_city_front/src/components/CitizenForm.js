@@ -63,13 +63,13 @@ const CitizenForm = ({onCitizenSubmission, houses, workplaces}) => {
             </div> */}
             <div className="formElement-citizen" onChange={handleHomeChange}>
                 <select>
-                    <option value="">--Please choose an option--</option>
+                    <option value="">-----Choose Home-----</option>
                     {houseOptions}
                 </select>
             </div>
             <div className="formElement-citizen" onChange={handleWorkplaceChange}>
                 <select>
-                    <option value="">--Please choose an option--</option>
+                    <option value="">-----Choose Workplace-----</option>
                     {workplaceOptions}
                 </select>
             </div>

@@ -15,13 +15,16 @@ function App() {
   // true just for development
   const [displayBuildings, setDisplayBuildings] = useState(false);
   const [displayMap, setDisplayMap] = useState(true);
+  const [bigContainer, setBigContainer] = useState("allotment");
 
   const showHideCitizens = () => {
     
     if (!displayCitizens===false){
       setDisplayMap(true);
+      setBigContainer("allotment");
     } else {
       setDisplayMap(false);
+      setBigContainer("citizens");
     }
     setDisplayBuildings(false);
     setDisplayCitizens(!displayCitizens);
@@ -39,8 +42,10 @@ function App() {
     
     if (!displayBuildings===false){
       setDisplayMap(true);
+      setBigContainer("allotment");
     } else {
       setDisplayMap(false);
+      setBigContainer("buildings");
     }
     setDisplayBuildings(!displayBuildings);
     setDisplayCitizens(false);
@@ -62,7 +67,7 @@ function App() {
 
   return (
     <>
-    <div className="big-container">
+    <div className={bigContainer==="allotment" ? "big-container big-container-allotment" : bigContainer==="buildings" ? "big-container big-container-buildings": bigContainer==="citizens" ? "big-container big-container-citizens" : "big-container"}>
       <Sidebar showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} showHideMap={showHideMap}/>
       <DisplayContainer showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} showHideMap={showHideMap} displayMap={displayMap} displayBuildings={displayBuildings} displayCitizens={displayCitizens}/> 
       
