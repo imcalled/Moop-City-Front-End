@@ -5,3 +5,67 @@
     float: right;
     width: 85%;
 }
+
+body {
+    font-family: 'Source Code Pro', monospace;
+  }
+  
+  .header {
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #31ffd5;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  
+  .subheader {
+    height: 20px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .gridMapContainer {
+    height: 100%;
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    /* border-style: solid;
+    border-color: black;
+    border-width: 10px; */
+    /* padding: 0; */
+    /* place-items: center center; */
+    /* flex: 1 0 auto;
+    height: auto; */
+  }
+
+/* .gridMapContainer > span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  } */
+/* 
+  .responsive-canvas {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: 800 px;
+  } */
+
+  /* canvas { */
+    /* padding: 0;
+    margin: auto; */
+    /* display: block; */
+    /* height: 800 px;
+    width: 800 px; */
+ /* } */

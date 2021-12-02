@@ -8,6 +8,7 @@ import Sidebar from './components/Sidebar'
 import DisplayContainer from './containers/DisplayContainer';
 
 import {useState} from 'react';
+import AllotmentMapContainer from './containers/AllotmentMapContainer';
 
 function App() {
   const [displayCitizens, setDisplayCitizens] = useState(false);
