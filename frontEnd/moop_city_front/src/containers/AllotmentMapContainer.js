@@ -68,6 +68,7 @@
 import React, { Component } from "react";
 import GridMap from '../components/Map/GridMap';
 import '../App.css';
+import './AllotmentMapContainer.css';
 
 class AllotmentMapContainer extends Component {
   constructor(props) {
@@ -120,10 +121,10 @@ class AllotmentMapContainer extends Component {
   
   render() {
     return (
-      <div>
-        <div className="header">
+      <div className={this.props.displayMap ? "show-map" : "hide-map"}>
+        {/* <div className="header">
           Tilemaps examples (with React)
-        </div>
+        </div> */}
         <div className="gridMapContainer">
           {/* <p>Grid map container</p> */}
             <canvas
