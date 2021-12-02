@@ -13,40 +13,63 @@ import AllotmentMapContainer from './containers/AllotmentMapContainer';
 function App() {
   const [displayCitizens, setDisplayCitizens] = useState(false);
   // true just for development
-  const [displayBuildings, setDisplayBuildings] = useState(true);
+  const [displayBuildings, setDisplayBuildings] = useState(false);
+  const [displayMap, setDisplayMap] = useState(true);
+  const [bigContainer, setBigContainer] = useState("allotment");
 
   const showHideCitizens = () => {
-    if (displayBuildings===false){
-      setDisplayCitizens(!displayCitizens);
+    
+    if (!displayCitizens===false){
+      setDisplayMap(true);
+      setBigContainer("allotment");
+    } else {
+      setDisplayMap(false);
+      setBigContainer("citizens");
     }
-    else {
-      setDisplayCitizens(!displayCitizens);
-      setDisplayBuildings(!displayBuildings);
-    }
+    setDisplayBuildings(false);
+    setDisplayCitizens(!displayCitizens);
+    // if (displayBuildings===false){
+    //   setDisplayCitizens(!displayCitizens);
+    // }
+    // else {
+    //   setDisplayCitizens(!displayCitizens);
+    //   setDisplayBuildings(!displayBuildings);
+    // }
     
   } 
 
   const showHideBuildings = () => {
-    if (displayCitizens===false){
-      setDisplayBuildings(!displayBuildings);
+    
+    if (!displayBuildings===false){
+      setDisplayMap(true);
+      setBigContainer("allotment");
+    } else {
+      setDisplayMap(false);
+      setBigContainer("buildings");
     }
-    else {
-      setDisplayCitizens(!displayCitizens);
-      setDisplayBuildings(!displayBuildings);
-    }
+    setDisplayBuildings(!displayBuildings);
+    setDisplayCitizens(false);
+    // if (displayCitizens===false){
+    //   setDisplayBuildings(!displayBuildings);
+    // }
+    // else {
+    //   setDisplayCitizens(!displayCitizens);
+    //   setDisplayBuildings(!displayBuildings);
+    // }
     
   } 
 
-  const hideAll = () => {
+  const showHideMap = () => {
+    setDisplayMap(true);
     setDisplayCitizens(false);
     setDisplayBuildings(false);
   }
 
   return (
     <>
-    <div className="big-container">
-      <Sidebar showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} hideAll={hideAll}/>
-      <DisplayContainer showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} displayBuildings={displayBuildings} displayCitizens={displayCitizens}/> 
+    <div className={bigContainer==="allotment" ? "big-container big-container-allotment" : bigContainer==="buildings" ? "big-container big-container-buildings": bigContainer==="citizens" ? "big-container big-container-citizens" : "big-container"}>
+      <Sidebar showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} showHideMap={showHideMap}/>
+      <DisplayContainer showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} showHideMap={showHideMap} displayMap={displayMap} displayBuildings={displayBuildings} displayCitizens={displayCitizens}/> 
       
     
     </div>

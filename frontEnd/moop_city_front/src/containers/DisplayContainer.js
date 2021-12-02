@@ -9,7 +9,7 @@ import DisplayAllCitizensContainer from "./DisplayAllCitizensContainer";
 import AllotmentMapContainer from "./AllotmentMapContainer";
 
 
-const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings, displayCitizens}) => {
+const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings, displayCitizens, displayMap, showHideMap}) => {
 
     const [houses, setHouses] = useState([]);
     const [workplaces, setWorkplaces] = useState([]);
@@ -67,7 +67,7 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
         <div className="display-container"> 
             
             <div className="right-side">
-                <AllotmentMapContainer />
+                <AllotmentMapContainer displayMap={displayMap} showHideMap={showHideMap}/>
                 <DisplayAllBuildingsContainer display={displayBuildings} showHideBuildings={showHideBuildings} houses={houses} workplaces={workplaces} buildings={buildings} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
                 <DisplayAllCitizensContainer display={displayCitizens} showHideCitizens={showHideCitizens} houses={houses} workplaces={workplaces} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
             </div>

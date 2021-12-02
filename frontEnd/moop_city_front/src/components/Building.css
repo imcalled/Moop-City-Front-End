@@ -1,6 +1,7 @@
 .building{
-    display: flex;
-    flex-direction: horizontal;
+    display: grid;
+    grid-template-columns: 1fr 0.7fr 0.7fr;
+    /* flex-direction: horizontal; */
     justify-content: space-evenly;
     border: 3px solid black;
     border-radius: 5px;
@@ -12,14 +13,60 @@
 }
 
 .building-elem{
-    display: flex;
-    flex-direction: horizontal;
+    display: grid;
+    /* flex-direction: horizontal; */
+    grid-template-columns: 1fr 1fr;
     justify-content: space-around;
     align-items: center;
     margin: 0.5em;
-    height: 2em;
+    /* height: 2em; */
 }
 h4{
     padding: 0.5em;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .building{
+        grid-template-columns: 1fr;
+    }
+    
+    .building-elem {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        justify-content: start;
+        
+    }
+    h4{
+        margin-left: 1.5em;
+        margin-top: 0em;
+        margin-bottom: 0em;
+        padding: 0;
+    }
+    p {
+        margin-right: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .building{
+        grid-template-columns: 1fr;
+    }
+    
+    .building-elem {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        justify-content: start;
+        
+    }
+    h4{
+        margin-left: 1.5em;
+        margin-top: 0em;
+        margin-bottom: 0em;
+        padding: 0;
+    }
+    p {
+        margin-right: 1.5em;
+    }
 }
 

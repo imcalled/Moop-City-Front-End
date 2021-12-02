@@ -1,0 +1,50 @@
+.show-map{
+    display: block;
+    /* margin-left: 15vw;
+    margin-right: 15vw; */
+}
+
+.hide-map{
+    display: none;
+}
+
+.gridMapContainer{
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#zoom3{
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Source Code Pro', monospace;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+    cursor: all-scroll;
+    user-select: none;
+
+}
+#zoom1{
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Source Code Pro', monospace;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    touch-action: none;
+}
+#zoom2{
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Source Code Pro', monospace;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+    cursor: all-scroll;
+    user-select: none;
+}
