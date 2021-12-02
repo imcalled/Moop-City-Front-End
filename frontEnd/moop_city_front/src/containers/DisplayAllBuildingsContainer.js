@@ -74,9 +74,9 @@ const DisplayAllBuildingsContainer = ({display, showHideBuildings, houses, workp
 
     return (
         <div className={display ? "building-container" : "hide"}> 
-            <div class="tab-bar">
-                <button class={button1 ? "selected" : "unselected"} onClick={() => openTab("building-form")}>New Building</button>
-                <button class={button2 ? "selected" : "unselected"} onClick={() => openTab("buildings")}>View All Buildings</button>
+            <div className="tab-bar">
+                <button className={button1 ? "selected" : "unselected"} onClick={() => openTab("building-form")}>New Building</button>
+                <button className={button2 ? "selected" : "unselected"} onClick={() => openTab("buildings")}>View All Buildings</button>
                 <button onClick={showHideBuildings} className="exit-button-building">X</button>
             </div> 
             <div id="building-form"  className={building_form ? "show" : "hide"}>

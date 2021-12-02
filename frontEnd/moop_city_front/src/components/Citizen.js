@@ -9,11 +9,11 @@ const Citizen = ({citizen}) => {
             </div>
             <div className="building-elem">
                 <h4>Home:</h4>
-                <p>{citizen.house_id}</p>
+                <p>{citizen.houseName}</p>
             </div>
             <div className="building-elem">
                 <h4>Workplace:</h4>
-                <p>{citizen.workplace_id}</p>
+                <p>{citizen.workplaceName}</p>
             </div>
             
            

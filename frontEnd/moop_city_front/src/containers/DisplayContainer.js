@@ -60,14 +60,18 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
         getBuildings();
         }, []);
     
+
     return (
+        // houses.length & workplaces.length > 0 ?
         <div className="display-container"> 
             
             <div className="right-side">
                 <DisplayAllBuildingsContainer display={displayBuildings} showHideBuildings={showHideBuildings} houses={houses} workplaces={workplaces} buildings={buildings} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
-                <DisplayAllCitizensContainer display={displayCitizens} showHideCitizens={showHideCitizens}/>
+                <DisplayAllCitizensContainer display={displayCitizens} showHideCitizens={showHideCitizens} houses={houses} workplaces={workplaces} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
             </div>
         </div>
+        // :
+        // <p>loading...</p>
         
     )
 }
