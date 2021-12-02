@@ -69,6 +69,7 @@ import React, { Component } from "react";
 import GridMap from '../components/Map/GridMap';
 import '../App.css';
 import './AllotmentMapContainer.css';
+import { MapInteractionCSS } from 'react-map-interaction';
 
 class AllotmentMapContainer extends Component {
   constructor(props) {
@@ -121,21 +122,33 @@ class AllotmentMapContainer extends Component {
   
   render() {
     return (
+      
       <div className={this.props.displayMap ? "show-map" : "hide-map"}>
         {/* <div className="header">
           Tilemaps examples (with React)
         </div> */}
         <div className="gridMapContainer">
-          {/* <p>Grid map container</p> */}
-            <canvas
-              ref={this.canvasRef}
-              width={960}
-              height={960}
-              style = {{margin: "0 auto"}}
-              // canvas.style = "position:absolute; left: 50%; width: 400px; margin-left: -200px;";
-              />
-        </div>
+        <MapInteractionCSS >
+        {/* <div id="zoom1">
+          <div id="zoom2" >
+            <div id="zoom3" > */}
+               
+                {/* <p>Grid map container</p> */}
+                <canvas
+                  ref={this.canvasRef}
+                  width={960}
+                  height={960}
+                  style = {{margin: "0 auto"}}
+                  // canvas.style = "position:absolute; left: 50%; width: 400px; margin-left: -200px;";
+                  />
+               
+            {/* </div>
+          </div>
+        </div> */}
+        </MapInteractionCSS>
       </div>
+      </div>  
+      
     );
   }
 }
