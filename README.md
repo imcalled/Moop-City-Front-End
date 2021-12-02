@@ -16,13 +16,11 @@ This should open the web page automatically, or you can visit http://localhost:3
 From there, you can enjoy exploring Moop City, which will already have some inhabitants. You can also add new buildings and citizens.
 
 ## Credits 
-Front end created by:
+Front end created by:  
+
 [Rose](https://github.com/roset99)  
-
-[Kun](https://github.com/imcalled) 
-
-[Yonis](https://github.com/ymabdulahi)
-
+[Kun](https://github.com/imcalled)  
+[Yonis](https://github.com/ymabdulahi)  
 [Chaam](https://github.com/CZboop)
 
 Detailed documentation on the back end can be found at:  
