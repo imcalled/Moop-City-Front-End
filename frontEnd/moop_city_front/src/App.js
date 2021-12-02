@@ -1,10 +1,11 @@
 
-import BuildingFormContainer from './containers/BuildingFormContainer';
-import DisplayAllBuildingsContainer from './containers/DisplayAllBuildingsContainer';
+// import BuildingFormContainer from './containers/BuildingFormContainer';
+// import DisplayAllBuildingsContainer from './containers/DisplayAllBuildingsContainer';
 
 import './App.css';
-import DisplayAllCitizensContainer from './containers/DisplayAllCitizensContainer';
+// import DisplayAllCitizensContainer from './containers/DisplayAllCitizensContainer';
 import Sidebar from './components/Sidebar'
+import DisplayContainer from './containers/DisplayContainer';
 
 import {useState} from 'react';
 
@@ -14,7 +15,7 @@ function App() {
   const [displayBuildings, setDisplayBuildings] = useState(true);
 
   const showHideCitizens = () => {
-    if (displayBuildings==false){
+    if (displayBuildings===false){
       setDisplayCitizens(!displayCitizens);
     }
     else {
@@ -25,7 +26,7 @@ function App() {
   } 
 
   const showHideBuildings = () => {
-    if (displayCitizens==false){
+    if (displayCitizens===false){
       setDisplayBuildings(!displayBuildings);
     }
     else {
@@ -43,13 +44,10 @@ function App() {
   return (
     <>
     <div className="big-container">
-    <Sidebar showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} hideAll={hideAll}/>
-    
+      <Sidebar showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} hideAll={hideAll}/>
+      <DisplayContainer showHideCitizens={showHideCitizens} showHideBuildings={showHideBuildings} displayBuildings={displayBuildings} displayCitizens={displayCitizens}/> 
       
-    <div className="right-side">
-      <DisplayAllBuildingsContainer display={displayBuildings} showHideBuildings={showHideBuildings}/>
-      <DisplayAllCitizensContainer display={displayCitizens} showHideCitizens={showHideCitizens}/>
-    </div>
+    
     </div>
     </>
   );
