@@ -17,9 +17,12 @@ From there, you can enjoy exploring Moop City, which will already have some inha
 
 ## Credits 
 Front end created by:
-[Rose](https://github.com/roset99)
-[Kun](https://github.com/imcalled)
+[Rose](https://github.com/roset99)  
+
+[Kun](https://github.com/imcalled) 
+
 [Yonis](https://github.com/ymabdulahi)
+
 [Chaam](https://github.com/CZboop)
 
 Detailed documentation on the back end can be found at:  
