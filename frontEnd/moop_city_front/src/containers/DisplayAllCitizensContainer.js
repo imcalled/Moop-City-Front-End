@@ -6,24 +6,64 @@ import './DisplayAllCitizensContainer.css'
 
 import Sidebar from '../components/Sidebar';
 
-const DisplayAllCitizensContainer = ({display, showHideCitizens}) => {
+const DisplayAllCitizensContainer = ({display, showHideCitizens, houses, workplaces, getHousesData, getWorkplaceData}) => {
 
     const [citizens, setCitizens] = useState([]);
     const [citizens_form, setCitizens_form] = useState(true);
     const [all_citizens, setAll_citizens] = useState(false);
     const [button1, setFormButton1] = useState(true);
+    const [fetchedData, setFetchedData] = useState(false);
     const [button2, setFormButton2] = useState(false);
     
 
     const getCitizensData = () => {
         fetch("http://localhost:8080/citizens")
         .then(response => response.json())
-        .then(data => setCitizens(data));
+        .then(data => {
+            setCitizens(data);
+            console.log("first", data);
+
+        })
+        .then(console.log("here",citizens))
+        .then(setTimeout(() => {setFetchedData(!fetchedData)}, 300));
+        
+        // .then(()=>getHousesData())
+        // .then(() => getWorkplaceData())
+        // .then(() => addNamesToCitizensData());
     }
 
-    useEffect(getCitizensData, []);
+    const addNamesToCitizensData = () => {
+        if (houses.length> 0 && workplaces.length > 0) {
+            const modified_citizens = citizens.map(citizen => {
+                    if (citizen.workplace_id == 0){
+                        citizen.workplaceName = "Hello";
+                    } else {
+                        console.log("citizen:", citizen);
+                        const workplace_name = workplaces.find(workplace => workplace.id == citizen.workplace_id);
+                        citizen.workplaceName = workplace_name.buildingName;
+                    }
+                    if (citizen.house_id == 0 ){
+                        citizen.houseName = "";
+                    } else {
+                        const house_name = houses.find(house => house.id == citizen.house_id);
+                        citizen.houseName = house_name.buildingName;
+                    }
+                    
+                    return (citizen);
+                })
+            console.log("this is ", modified_citizens);
+            setCitizens(modified_citizens);
+        }
+        
+    }
+
+    useEffect(()=> {getCitizensData(); console.log("loop?");}, []);
+    useEffect(() => {console.log("useEffect", citizens); addNamesToCitizensData();}, [fetchedData]);
 
     const addNewCitizen = (newCitizen) => {
+        const modified_citizen = {
+            
+        }
         fetch("http://localhost:8080/citizens", {
             method: 'POST',
             headers: {
@@ -52,15 +92,15 @@ const DisplayAllCitizensContainer = ({display, showHideCitizens}) => {
       
         <div className={display ? "citizen-container" : "hide"}>
             <div className="tab-bar">
-                <button class={button1 ? "selected-citizen" : "unselected-citizen"} onClick={() => openTab("citizen-form")}>New Citizen</button>
-                <button class={button2 ? "selected-citizen" : "unselected-citizen"} onClick={() => openTab("citizens")}>View All Citizens</button>
+                <button className={button1 ? "selected-citizen" : "unselected-citizen"} onClick={() => openTab("citizen-form")}>New Citizen</button>
+                <button className={button2 ? "selected-citizen" : "unselected-citizen"} onClick={() => openTab("citizens")}>View All Citizens</button>
                 <button onClick={showHideCitizens} className="exit-button-citizen">X</button>
             </div>
             <div id="citizen-form" className={citizens_form ? "show" : "hide"}>
-                <CitizenForm onCitizenSubmission={addNewCitizen}/>
+                <CitizenForm onCitizenSubmission={addNewCitizen}  houses={houses} workplaces={workplaces} />
             </div>
             <div id="citizens" className={all_citizens ? "show": "hide"}>
-                <CitizenList citizens={citizens}/>
+                <CitizenList citizens={citizens} addNamesToCitizensData={addNamesToCitizensData}/>
             </div>
             
         </div>

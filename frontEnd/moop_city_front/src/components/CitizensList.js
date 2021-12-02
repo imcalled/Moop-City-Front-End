@@ -1,13 +1,13 @@
 import Citizen from './Citizen';
+import { useEffect } from 'react';
 
-const CitizenList = ({citizens}) => {
+const CitizenList = ({citizens, addNamesToCitizensData}) => {
     
+
     const citizensComponent = citizens.map(citizen => {
         return(
-            <Citizen citizen={citizen} keys={citizen.id}/>
-        )
-    })
-
+            <Citizen citizen={citizen} key={citizen.id}/>
+        )});
     return(
         <div>
             {citizensComponent}
