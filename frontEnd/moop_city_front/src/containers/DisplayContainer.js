@@ -43,25 +43,16 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
             });
             setWorkplaces(modified_data2);
         })
-        // .then(setTimeout(() => {setNewFetchWorkplacesData(!newFetchWorkplacesData)}, 300));
         .then(() => {setNewFetchWorkplacesData(!newFetchWorkplacesData)});
     }
-
-    // const getAllotments = () => {
-    //     fetch("http://localhost:8080/allotments")
-    //     .then(response => response.json())
-    //     .then(data => setAllotments(data))
-    // }
 
     const getBuildings = () => {
         fetch("http://localhost:8080/buildings")
         .then(response => response.json())
         .then(data => setBuildings(data))
-        // .then(console.log("buildings", data))
     }
 
     useEffect(() => {
-        // getAllotments();
         getHousesData();
         getWorkplaceData();
         getBuildings();

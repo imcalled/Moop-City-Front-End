@@ -37,14 +37,6 @@ const BuildingList = ({houses, workplaces}) => {
         }
     }
    
-    // const buildingComponents = buildings.map(building => {
-    //     return (
-    //         <div className="building-card">
-    //             <Building building={building}/>
-    //         </div>
-            
-    //     )
-    // })
 
     return (
         <div className="building-list">
@@ -53,9 +45,6 @@ const BuildingList = ({houses, workplaces}) => {
             <h2>Workplaces</h2>
             {workplaceDisplay()}
         </div>
-        // <div className="building-container">
-        //     {buildingComponents}
-        // </div>
     )
 }
 

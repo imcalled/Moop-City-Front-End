@@ -8,10 +8,6 @@ import BuildingList from "../components/BuildingsList.js";
 
 const DisplayAllBuildingsContainer = ({display, showHideBuildings, houses, workplaces, buildings, getHousesData, getWorkplaceData}) => {
 
-    // const [buildings, setBuildings] = useState([]);
-    // const [allotments, setAllotments] = useState([]);
-    // const [houses, setHouses] = useState([]);
-    // const [workplaces, setWorkplaces] = useState([]);
     const [building_form, setBuilding_form] = useState(true);
     const [all_buildings, setAll_buildings] = useState(false);
     const [button1, setFormButton1] = useState(true);
@@ -20,7 +16,6 @@ const DisplayAllBuildingsContainer = ({display, showHideBuildings, houses, workp
 
 
     const addBuilding = (newBuilding) => {
-        // getAllotmentIDByCoordinates(newBuilding);
         if (newBuilding.buildingType === "House") {
             const newHouse = {
                 buildingName: newBuilding.buildingName,

@@ -27,9 +27,6 @@ const DisplayAllCitizensContainer = ({display, showHideCitizens, houses, workpla
         .then(console.log("here",citizens))
         .then(setTimeout(() => {setFetchedData(!fetchedData)}, 300));
         
-        // .then(()=>getHousesData())
-        // .then(() => getWorkplaceData())
-        // .then(() => addNamesToCitizensData());
     }
 
     const addNamesToCitizensData = () => {
