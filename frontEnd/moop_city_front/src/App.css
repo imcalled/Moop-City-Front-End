@@ -3,7 +3,7 @@
 }
 .right-side{
     float: right;
-    width: 85%;
+    width: 85vw;
 }
 
 body {
@@ -69,3 +69,25 @@ body {
     /* height: 800 px;
     width: 800 px; */
  /* } */
+
+ @media only screen and (max-width: 600px) {
+  .right-side{
+    width: 100%;
+    height: 100%;
+  }
+  .display-container{
+    width: 100%;
+  }
+  .big-container-allotment {
+    background-color: green;
+  }
+  .big-container-citizens{
+    background-color: rgb(181, 222, 255);
+  }
+  .big-container-buildings{
+    background-color:rgb(255,215,181);
+    
+  }
+  
+  
+ }
