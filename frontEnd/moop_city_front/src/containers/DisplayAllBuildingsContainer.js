@@ -16,6 +16,7 @@ const DisplayAllBuildingsContainer = ({display, showHideBuildings, houses, workp
     const [all_buildings, setAll_buildings] = useState(false);
     const [button1, setFormButton1] = useState(true);
     const [button2, setFormButton2] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
 
     const addBuilding = (newBuilding) => {
@@ -49,12 +50,10 @@ const DisplayAllBuildingsContainer = ({display, showHideBuildings, houses, workp
             })
             .then(() => getWorkplaceData())
         } else {
-            console.log("this is the problem")
+            console.log("this is the problem");
         }
         
     }
-
-    
     
     const openTab = (tabName) => {
         if (tabName ==="building-form"){
@@ -80,7 +79,7 @@ const DisplayAllBuildingsContainer = ({display, showHideBuildings, houses, workp
                 <button onClick={showHideBuildings} className="exit-button-building">X</button>
             </div> 
             <div id="building-form"  className={building_form ? "show" : "hide"}>
-                <BuildingFormContainer  addBuilding={addBuilding}/>
+                <BuildingFormContainer addBuilding={addBuilding}/>
             </div>
             <div id="buildings" className={all_buildings ? "show" : "hide"}>
                 <BuildingList houses={houses} workplaces={workplaces}/>

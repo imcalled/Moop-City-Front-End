@@ -3,11 +3,25 @@
 }
 .right-side{
     float: right;
-    width: 85%;
+    width: 85vw;
 }
 
 body {
     font-family: 'Source Code Pro', monospace;
+  }
+
+  /* tried to add sky background image */
+  .bg {
+    /* The image used */
+    background-image : url('./images/sky.png') rgb(166, 228, 243);
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   .header {
@@ -69,3 +83,25 @@ body {
     /* height: 800 px;
     width: 800 px; */
  /* } */
+
+ @media only screen and (max-width: 600px) {
+  .right-side{
+    width: 100%;
+    height: 100%;
+  }
+  .display-container{
+    width: 100%;
+  }
+  .big-container-allotment {
+    background-color: green;
+  }
+  .big-container-citizens{
+    background-color: rgb(181, 222, 255);
+  }
+  .big-container-buildings{
+    background-color:rgb(255,215,181);
+    
+  }
+  
+  
+ }

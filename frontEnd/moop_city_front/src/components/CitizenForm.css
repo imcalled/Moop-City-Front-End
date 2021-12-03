@@ -116,3 +116,10 @@ input[type="submit"]{
 h2{
     color: #383434;
 }
+
+@media only screen and (max-width: 600px) {
+    .form-container-citizen{
+        padding: 1em;
+    }
+    
+}

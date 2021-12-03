@@ -50,7 +50,7 @@ const BuildingList = ({houses, workplaces}) => {
         <div className="building-list">
             <h2>Houses</h2>
             {houseDisplay()}
-            <h2>Workplace</h2>
+            <h2>Workplaces</h2>
             {workplaceDisplay()}
         </div>
         // <div className="building-container">
