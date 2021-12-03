@@ -76,8 +76,8 @@ class AllotmentMapContainer extends Component {
     super(props);
     this.state = {
       isGridMapRunning: false,
-      houses: [],
-      workplaces: [],
+      // houses: [],
+      // workplaces: [],
       fetchedHousesData: this.props.newFetchedHousesData,
       fetchedWorkplacesData: this.props.newFetchedWorkplacesData,
 
@@ -97,28 +97,28 @@ class AllotmentMapContainer extends Component {
   }
 
   // const [houses, setHouses] = useState([]);
-  getHousesData = async () => {
-    const res = await fetch("http://localhost:8080/buildings/houses");
-    const data = await res.json();
-    const modified_data = await data.map(house => {
-      house.buildingType = "House";
-      return house;
-    })
-    this.setState(state => ({ houses: modified_data}))
-    return setTimeout(() => {
-      this.setState(state => ({fetchedHousesData: !this.state.fetchedHousesData})
-    )}, 300);
-  }
+  // getHousesData = async () => {
+  //   const res = await fetch("http://localhost:8080/buildings/houses");
+  //   const data = await res.json();
+  //   const modified_data = await data.map(house => {
+  //     house.buildingType = "House";
+  //     return house;
+  //   })
+  //   this.setState(state => ({ houses: modified_data}))
+  //   return setTimeout(() => {
+  //     this.setState(state => ({fetchedHousesData: !this.state.fetchedHousesData})
+  //   )}, 300);
+  // }
 
-  getWorkplacesData = async () => {
-    const res = await fetch("http://localhost:8080/buildings/workplaces");
-    const data = await res.json();
-    const modified_data1 = await data.map(workplaces => {
-      workplaces.buildingType = "Workplace";
-      return workplaces;
-    })
-    return this.setState(state => ({ workplaces: modified_data1}))
-  }
+  // getWorkplacesData = async () => {
+  //   const res = await fetch("http://localhost:8080/buildings/workplaces");
+  //   const data = await res.json();
+  //   const modified_data1 = await data.map(workplaces => {
+  //     workplaces.buildingType = "Workplace";
+  //     return workplaces;
+  //   })
+  //   return this.setState(state => ({ workplaces: modified_data1}))
+  // }
     // .then(response => response.json())
     // .then(data => {
     //     const modified_data1 = data.map(house => {
@@ -132,25 +132,26 @@ class AllotmentMapContainer extends Component {
   
   componentDidMount = () => {
     // fitContainer(this.)
-    this.getHousesData();
-    this.getWorkplacesData();
+    // this.getHousesData();
+    // this.getWorkplacesData();
     setTimeout(() => this.start(), 300);
   }
 
-//   componentDidUpdate = (prevProps, prevState) => {
-//     if(this.state.fetchedHousesData != prevState.fetchedHousesData) {
-//       this.getHousesData();
-//       // this.canvasRef.currentclearRect();
-//       setTimeout(() => this.setState(state => ({isGridMapRunning: false})));
-//       setTimeout(() => this.start, 300);
-//     // useEffect(() => {console.log("useEffect", citizens); addNamesToCitizensData();}, [fetchedData]);
-//   }
-// }
+  componentDidUpdate = (prevProps) => {
+    console.log("comparing house props");
+    if(this.props.houses.length != prevProps.houses.length || this.props.workplaces.length != prevProps.workplaces.length) {
+      // this.getHousesData();
+      // this.canvasRef.currentclearRect();
+      this.setState({isGridMapRunning: false}, this.start);
+      // setTimeout(() => this.start, 300);
+    // useEffect(() => {console.log("useEffect", citizens); addNamesToCitizensData();}, [fetchedData]);
+  }
+}
 
   start = async () => {
     if (!this.state.isGridMapRunning) {
       // this.gridMap = new GridMap(this.getContext(), this.props.houses, this.props.workplaces);
-      this.gridMap = new GridMap(this.getContext(), this.state.houses, this.state.workplaces);
+      this.gridMap = new GridMap(this.getContext(), this.props.houses, this.props.workplaces);
       // this.state.{houses}
       await this.gridMap.init();
       this.renderGridMap();

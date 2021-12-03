@@ -14,11 +14,11 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
     const [houses, setHouses] = useState([]);
     const [workplaces, setWorkplaces] = useState([]);
     const [buildings, setBuildings] = useState([]);
+
     const [newFetchHousesData, setNewFetchHousesData] = useState(false);
     const [newFetchWorkplacesData, setNewFetchWorkplacesData] = useState(false);
 
     const getHousesData = () => {
-        
         fetch("http://localhost:8080/buildings/houses")
         .then(response => response.json())
         .then(data => {
@@ -30,9 +30,11 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
             });
             setHouses(modified_data1)
         })
-        .then(setTimeout(() => {setNewFetchHousesData(!newFetchHousesData)}, 300));
+        // .then(setTimeout(() => {setNewFetchHousesData(!newFetchHousesData)}, 300));
+        .then(() => {setNewFetchHousesData(!newFetchHousesData)});
         // .then(console.log(houses[0].id))  
     }
+
     const getWorkplaceData = () => {
         fetch("http://localhost:8080/buildings/workplaces")
         .then(response => response.json())
@@ -46,7 +48,8 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
             });
             setWorkplaces(modified_data2);
         })
-        .then(setTimeout(() => {setNewFetchWorkplacesData(!newFetchWorkplacesData)}, 300));
+        // .then(setTimeout(() => {setNewFetchWorkplacesData(!newFetchWorkplacesData)}, 300));
+        .then(() => {setNewFetchWorkplacesData(!newFetchWorkplacesData)});
     }
 
     // const getAllotments = () => {
@@ -76,14 +79,13 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
             
             <div className="right-side">
                 {/* <AllotmentMapContainer houses={houses} workplaces={workplaces}/> */}
-                <AllotmentMapContainer displayMap={displayMap} showHideMap={showHideMap} newFetchHousesData={newFetchHousesData} newFetchWorkplacesData={newFetchWorkplacesData}/>
+                <AllotmentMapContainer displayMap={displayMap} showHideMap={showHideMap} newFetchHousesData={newFetchHousesData} newFetchWorkplacesData={newFetchWorkplacesData} houses={houses} workplaces={workplaces} />
                 <DisplayAllBuildingsContainer display={displayBuildings} showHideBuildings={showHideBuildings} houses={houses} workplaces={workplaces} buildings={buildings} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
                 <DisplayAllCitizensContainer display={displayCitizens} showHideCitizens={showHideCitizens} houses={houses} workplaces={workplaces} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
             </div>
         </div>
         // :
         // <p>loading...</p>
-        
     )
 }
 
