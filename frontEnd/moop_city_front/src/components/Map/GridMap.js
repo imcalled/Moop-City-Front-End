@@ -1,5 +1,6 @@
 import loader from "./Loader";
 import tileMap from "./TileMap";
+// import tileAtlas from '../../images/tiles.png';
 
 export default class GridMap {
     constructor(context, houses, workplaces) {
@@ -9,6 +10,7 @@ export default class GridMap {
       this.houses = houses;
       this.workplaces = workplaces;
       this.tileMap = new tileMap(this.houses, this.workplaces);
+      // this.tileAtlas = null;
       // this.allotments = allotments;
     }   
   
@@ -18,13 +20,20 @@ export default class GridMap {
       this.images = {
         tiles,
       };
-      this.tileMap.placeInitialBuildings(this.houses, this.workplaces);
+      this.tileMap.placeInitialBuildings();
+
+      // const image = new Image();
+
+      // this.tileAtlas = image;
+      // image.onload = () => {
+      //   this.draw();
+      // };
+      // image.src = "../../images/tiles.png";
     };
   
     draw = () => {
       for (let columnIndex = 0; columnIndex < this.tileMap.columns; columnIndex++) {
         for (let rowIndex = 0; rowIndex < this.tileMap.rows; rowIndex++) {
-          //call placeInitialHouses
           let tile = this.tileMap.getTile(columnIndex, rowIndex);
           if (tile !== 0) { // 0 => empty tile
             this.context.drawImage(
@@ -49,7 +58,7 @@ export default class GridMap {
   
     render() {
       // draw map
-      this.draw(0);
+      this.draw();
       return(<> </>);
     }
   }

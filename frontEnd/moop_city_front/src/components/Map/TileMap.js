@@ -12,17 +12,11 @@ export default class TileMap {
       ];
       this.houses = houses;
       this.workplaces = workplaces;
-      // this.allotments = allotments;
+
+      // random tiles
       // this.randomTiles = Array.from({length: 25}, () => Math.floor((Math.random() * 3)+1));
       // this.tiles = this.randomTiles;
-      this.onClick = this.onClick.bind(this);
-      this.state = {clickedIndex: []};
-    // }
   }
-  
-    getTile(columnIndex, rowIndex) {
-      return this.tiles[rowIndex * this.columns + columnIndex];
-    }
 
     placeInitialBuildings = () => {      
       this.houses.map(house => {
@@ -30,20 +24,11 @@ export default class TileMap {
       })
 
       this.workplaces.map(workplace => {
-        // console.log(workplace.allotment_id);
         this.tiles[workplace.allotment_id - 1] = 5;
       })
-
-      console.log(this.tiles)
-      return this.tiles;
     }
 
-    onClick(i) {
-      const index = this.state.clickedIndex.slice();
-      if(index.indexOf(i) === -1) { //handle duplicates
-        index.push(i);
-        this.setState({clickedIndex: index})
-      }
+    getTile(columnIndex, rowIndex) {
+      return this.tiles[rowIndex * this.columns + columnIndex];
     }
-
   }
