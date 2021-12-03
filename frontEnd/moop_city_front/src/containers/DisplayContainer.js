@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import React from "react";
-import BuildingFormContainer from "./BuildingFormContainer";
 import './DisplayAllBuildingsContainer.css';
-import BuildingList from "../components/BuildingsList.js";
-// import './DisplayAllBuildingsContainer.css'
 import DisplayAllBuildingsContainer from "./DisplayAllBuildingsContainer";
 import DisplayAllCitizensContainer from "./DisplayAllCitizensContainer";
 import AllotmentMapContainer from "./AllotmentMapContainer";
@@ -15,8 +12,10 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
     const [workplaces, setWorkplaces] = useState([]);
     const [buildings, setBuildings] = useState([]);
 
+    const [newFetchHousesData, setNewFetchHousesData] = useState(false);
+    const [newFetchWorkplacesData, setNewFetchWorkplacesData] = useState(false);
+
     const getHousesData = () => {
-        
         fetch("http://localhost:8080/buildings/houses")
         .then(response => response.json())
         .then(data => {
@@ -28,9 +27,9 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
             });
             setHouses(modified_data1)
         })
-        // .then(console.log(houses[0].id));
-        
+        .then(() => {setNewFetchHousesData(!newFetchHousesData)});
     }
+
     const getWorkplaceData = () => {
         fetch("http://localhost:8080/buildings/workplaces")
         .then(response => response.json())
@@ -43,8 +42,9 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
                     );
             });
             setWorkplaces(modified_data2);
-            
         })
+        // .then(setTimeout(() => {setNewFetchWorkplacesData(!newFetchWorkplacesData)}, 300));
+        .then(() => {setNewFetchWorkplacesData(!newFetchWorkplacesData)});
     }
 
     // const getAllotments = () => {
@@ -69,18 +69,14 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
     
 
     return (
-        // houses.length & workplaces.length > 0 ?
         <div className="display-container"> 
             
             <div className="right-side">
-                <AllotmentMapContainer displayMap={displayMap} showHideMap={showHideMap}/>
+                <AllotmentMapContainer displayMap={displayMap} showHideMap={showHideMap} newFetchHousesData={newFetchHousesData} newFetchWorkplacesData={newFetchWorkplacesData} houses={houses} workplaces={workplaces} />
                 <DisplayAllBuildingsContainer display={displayBuildings} showHideBuildings={showHideBuildings} houses={houses} workplaces={workplaces} buildings={buildings} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
                 <DisplayAllCitizensContainer display={displayCitizens} showHideCitizens={showHideCitizens} houses={houses} workplaces={workplaces} getHousesData={getHousesData} getWorkplaceData={getWorkplaceData}/>
             </div>
         </div>
-        // :
-        // <p>loading...</p>
-        
     )
 }
 

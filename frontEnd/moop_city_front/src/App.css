@@ -9,6 +9,20 @@
 body {
     font-family: 'Source Code Pro', monospace;
   }
+
+  /* tried to add sky background image */
+  .bg {
+    /* The image used */
+    background-image : url('./images/sky.png') rgb(166, 228, 243);
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   
   .header {
     height: 50px;

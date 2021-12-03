@@ -58,6 +58,7 @@ const DisplayAllCitizensContainer = ({display, showHideCitizens, houses, workpla
     }
 
     useEffect(()=> {getCitizensData(); console.log("loop?");}, []);
+    //if fetchedData changed, run addNamesToCitizensData() and reload
     useEffect(() => {console.log("useEffect", citizens); addNamesToCitizensData();}, [fetchedData]);
 
     const addNewCitizen = (newCitizen) => {
