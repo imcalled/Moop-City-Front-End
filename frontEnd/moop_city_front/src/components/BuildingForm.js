@@ -25,13 +25,6 @@ const BuildingForm = ( {onFormSubmission}) => {
         setAllotment_id(event.target.value);
     }
 
-    // const handlex_coordinateChange = (event) =>{
-    //     setx_coordinates(event.target.value);
-    // }
-    // const handley_coordinateChange = (event) =>{
-    //     sety_coordinates(event.target.value);
-    // }
-
 
     const handleFormSubmission = (event) => {
         event.preventDefault();
@@ -49,8 +42,6 @@ const BuildingForm = ( {onFormSubmission}) => {
         setBuildingName("");
         setCapacity("");
         setAllotment_id("");
-        // setx_coordinates("");
-        // sety_coordinates("");
     }
 
     return (
