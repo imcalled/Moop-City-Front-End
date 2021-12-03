@@ -46,11 +46,7 @@ const DisplayContainer = ({showHideCitizens, showHideBuildings, displayBuildings
             });
             setWorkplaces(modified_data2);
         })
-<<<<<<< HEAD
         .then(setTimeout(() => {setNewFetchWorkplacesData(!newFetchWorkplacesData)}, 300));
-=======
-        .then(() => {setNewFetchWorkplacesData(!newFetchWorkplacesData)});
->>>>>>> 06dba2ea3c956b65f502b9762a05e4089bccadff
     }
 
     const getBuildings = () => {
